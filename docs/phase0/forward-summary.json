@@ -1,0 +1,91 @@
+{
+  "scope": "pretrained_gnn_forward_only",
+  "complete_tree_inference": false,
+  "target": "CCOc1ccc(C2NCCc3c2cc(OC)c(OC)c3OC)o1",
+  "tree_file": "tests/data/ref/st_data.json.gz",
+  "input_shape": [
+    4,
+    4219
+  ],
+  "edge_index": [
+    [
+      2,
+      2,
+      3,
+      0,
+      1,
+      2
+    ],
+    [
+      0,
+      1,
+      2,
+      2,
+      2,
+      3
+    ]
+  ],
+  "root": 3,
+  "filled_mask": [
+    0,
+    0,
+    0,
+    1
+  ],
+  "torch": "2.1.0+cpu",
+  "models": [
+    {
+      "checkpoint": "/home/doubo/projects/SynthesisNet-master/ckpts/3-RXN/ckpts.epoch=27-val_accuracy_loss=0.36.ckpt",
+      "config": {
+        "c_in": 4219,
+        "c_hidden": 1200,
+        "c_out": 347,
+        "num_layers": 5,
+        "layer_name": "Transformer",
+        "dp_rate": 0.5
+      },
+      "output_shape": [
+        4,
+        347
+      ],
+      "finite": true,
+      "repeat_exact": true,
+      "prediction_sha256": "509e8b07033b1f152dd5a145ff9b76e0946ff347347e53d5f3d0d14cd3c27bf4",
+      "unmasked_rxn_argmax": [
+        84,
+        84,
+        0,
+        84
+      ]
+    },
+    {
+      "checkpoint": "/home/doubo/projects/SynthesisNet-master/ckpts/3-NN/ckpts.epoch=7-val_nn_accuracy_loss=0.67.ckpt",
+      "config": {
+        "c_in": 4219,
+        "c_hidden": 1200,
+        "c_out": 347,
+        "num_layers": 5,
+        "layer_name": "Transformer",
+        "dp_rate": 0.0,
+        "heads": 8,
+        "concat": false
+      },
+      "output_shape": [
+        4,
+        347
+      ],
+      "finite": true,
+      "repeat_exact": true,
+      "prediction_sha256": "664a795e4dadf50a29fb03e198915f4585b8fe0c0b0d21adfabe930dfc41c9a0",
+      "unmasked_rxn_argmax": [
+        71,
+        13,
+        79,
+        13
+      ]
+    }
+  ],
+  "upstream_commit": "2fefd24dd1b746165fd0b073f340f8ecbb2e15f4",
+  "python": "3.9.18",
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.35"
+}
