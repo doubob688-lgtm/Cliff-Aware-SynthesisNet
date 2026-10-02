@@ -1,0 +1,56 @@
+{
+  "source_commit": "2fefd24dd1b746165fd0b073f340f8ecbb2e15f4",
+  "source": "https://github.com/shiningsunnyday/SynthesisNet",
+  "checkpoints_article": "https://figshare.com/articles/dataset/28557581",
+  "skeletons_article": "https://figshare.com/articles/dataset/28658243",
+  "verified_local_files": [
+    {
+      "role": "3-RXN",
+      "file_id": 52862570,
+      "url": "https://ndownloader.figshare.com/files/52862570",
+      "path": "/home/doubo/projects/SynthesisNet-master/ckpts/3-RXN/ckpts.epoch=27-val_accuracy_loss=0.36.ckpt",
+      "size": 470660159,
+      "md5": "0aa68e2e93570f9afcb5071a020b50ec",
+      "exercised": true
+    },
+    {
+      "role": "3-NN",
+      "file_id": 52862594,
+      "url": "https://ndownloader.figshare.com/files/52862594",
+      "path": "/home/doubo/projects/SynthesisNet-master/ckpts/3-NN/ckpts.epoch=7-val_nn_accuracy_loss=0.67.ckpt",
+      "size": 2941355775,
+      "md5": "3694278aad8a1233c95267ec9084716d",
+      "exercised": true
+    },
+    {
+      "role": "3-REC",
+      "file_id": 52862321,
+      "url": "https://ndownloader.figshare.com/files/52862321",
+      "path": "/home/doubo/projects/SynthesisNet-master/ckpts/3-REC/ckpts.epoch=1-val_loss=0.14.ckpt",
+      "size": 22322214,
+      "md5": "32bb64e8d4a797487c93bdb1c3c3b00a",
+      "exercised": false
+    },
+    {
+      "role": "training skeleton dictionary",
+      "file_id": 53202905,
+      "url": "https://ndownloader.figshare.com/files/53202905",
+      "path": "/home/doubo/SynthesisNet/results/viz/skeletons-train.pkl",
+      "size": 84253844,
+      "md5": "ed074d973a3a2ad0a158c271df296487",
+      "exercised": true
+    }
+  ],
+  "missing_canonical_assets": [
+    "data/assets/building-blocks/enamine_us_matched.csv",
+    "data/assets/building-blocks/enamine_us_emb_fp_256.npy",
+    "data/assets/reaction-templates/reactions_hb.json.gz"
+  ],
+  "recognizer_mapping_download": {
+    "file_id": 52862033,
+    "url": "https://ndownloader.figshare.com/files/52862033",
+    "name": "config.json",
+    "md5": "85656bf6376e546cfddd9e6fca800f04",
+    "num_classes": 30
+  }
+}
