@@ -1,0 +1,3020 @@
+{
+  "audit": {
+    "source_url": "https://raw.githubusercontent.com/rxn4chemistry/rxn_yields/d9e6b87ce1b881978490d68bfc00021e3b48127a/data/Buchwald-Hartwig/Dreher_and_Doyle_input_data.xlsx",
+    "source_commit": "d9e6b87ce1b881978490d68bfc00021e3b48127a",
+    "raw_sha256": "d7f318abfbb42eaadca482b1e9aa54540eeed60e0089b6a0eb4e75366c31ee2e",
+    "raw_bytes": 2134762,
+    "primary_sheet": "FullCV_01",
+    "sheets": [
+      "FullCV_01",
+      "FullCV_02",
+      "FullCV_03",
+      "FullCV_04",
+      "FullCV_05",
+      "FullCV_06",
+      "FullCV_07",
+      "FullCV_08",
+      "FullCV_09",
+      "FullCV_10",
+      "Test1",
+      "Test2",
+      "Test3",
+      "Test4",
+      "Plates1-3",
+      "Plate2_new"
+    ],
+    "raw_reactions": 3955,
+    "usable_reactions": 3955,
+    "columns": [
+      "Ligand",
+      "Additive",
+      "Base",
+      "Aryl halide",
+      "Output"
+    ],
+    "missing_values": {
+      "Ligand": 0,
+      "Additive": 0,
+      "Base": 0,
+      "Aryl halide": 0,
+      "Output": 0
+    },
+    "unique_components_raw": {
+      "Aryl halide": 15,
+      "Ligand": 4,
+      "Base": 3,
+      "Additive": 22
+    },
+    "unique_components_canonical": {
+      "Aryl halide": 15,
+      "Ligand": 4,
+      "Base": 3,
+      "Additive": 22
+    },
+    "duplicates_exact_rows": 0,
+    "duplicates_canonical_conditions": 0,
+    "yield_percent_summary": {
+      "count": 3955.0,
+      "mean": 33.085258879328194,
+      "std": 27.291204565764545,
+      "min": 0.0,
+      "25%": 7.8775600699999995,
+      "50%": 28.7617291,
+      "75%": 53.278687094999995,
+      "max": 99.99999
+    },
+    "yield_histogram_edges": [
+      0,
+      20,
+      40,
+      60,
+      80,
+      100
+    ],
+    "yield_histogram_counts": [
+      1632,
+      833,
+      680,
+      530,
+      280
+    ],
+    "yield_zero_count": 236,
+    "unique_targets": 5,
+    "filtering": "FullCV_01 already contains the 3955-row benchmark; no extra row filtering or imputation",
+    "factorial_expected": 3960,
+    "products_by_aryl": {
+      "Clc1ccccn1": "Cc1ccc(Nc2ccccn2)cc1",
+      "Brc1ccccn1": "Cc1ccc(Nc2ccccn2)cc1",
+      "CCc1ccc(I)cc1": "CCc1ccc(Nc2ccc(C)cc2)cc1",
+      "FC(F)(F)c1ccc(Cl)cc1": "Cc1ccc(Nc2ccc(C(F)(F)F)cc2)cc1",
+      "COc1ccc(Cl)cc1": "COc1ccc(Nc2ccc(C)cc2)cc1",
+      "Brc1cccnc1": "Cc1ccc(Nc2cccnc2)cc1",
+      "Ic1ccccn1": "Cc1ccc(Nc2ccccn2)cc1",
+      "CCc1ccc(Br)cc1": "CCc1ccc(Nc2ccc(C)cc2)cc1",
+      "Clc1cccnc1": "Cc1ccc(Nc2cccnc2)cc1",
+      "CCc1ccc(Cl)cc1": "CCc1ccc(Nc2ccc(C)cc2)cc1",
+      "Ic1cccnc1": "Cc1ccc(Nc2cccnc2)cc1",
+      "COc1ccc(Br)cc1": "COc1ccc(Nc2ccc(C)cc2)cc1",
+      "FC(F)(F)c1ccc(I)cc1": "Cc1ccc(Nc2ccc(C(F)(F)F)cc2)cc1",
+      "COc1ccc(I)cc1": "COc1ccc(Nc2ccc(C)cc2)cc1",
+      "FC(F)(F)c1ccc(Br)cc1": "Cc1ccc(Nc2ccc(C(F)(F)F)cc2)cc1"
+    },
+    "missing_factorial_combinations": [
+      {
+        "Aryl halide": "CCc1ccc(Cl)cc1",
+        "Ligand": "CC(C)c1cc(C(C)C)c(-c2ccccc2P(C(C)(C)C)C(C)(C)C)c(C(C)C)c1",
+        "Base": "CN(C)C(=NC(C)(C)C)N(C)C",
+        "Additive": "c1ccc(-c2ccon2)cc1"
+      },
+      {
+        "Aryl halide": "CCc1ccc(Cl)cc1",
+        "Ligand": "CC(C)c1cc(C(C)C)c(-c2ccccc2P(C(C)(C)C)C(C)(C)C)c(C(C)C)c1",
+        "Base": "CN(C)C(=NC(C)(C)C)N(C)C",
+        "Additive": "c1ccc(-c2cnoc2)cc1"
+      },
+      {
+        "Aryl halide": "FC(F)(F)c1ccc(Br)cc1",
+        "Ligand": "CC(C)c1cc(C(C)C)c(-c2ccccc2P(C(C)(C)C)C(C)(C)C)c(C(C)C)c1",
+        "Base": "CN1CCCN2CCCN=C12",
+        "Additive": "Cc1ccon1"
+      },
+      {
+        "Aryl halide": "FC(F)(F)c1ccc(I)cc1",
+        "Ligand": "CC(C)c1cc(C(C)C)c(-c2ccccc2P(C(C)(C)C)C(C)(C)C)c(C(C)C)c1",
+        "Base": "CN1CCCN2CCCN=C12",
+        "Additive": "Cc1ccon1"
+      },
+      {
+        "Aryl halide": "Ic1cccnc1",
+        "Ligand": "COc1ccc(OC)c(P(C(C)(C)C)C(C)(C)C)c1-c1c(C(C)C)cc(C(C)C)cc1C(C)C",
+        "Base": "CN(C)C(=NC(C)(C)C)N(C)C",
+        "Additive": "c1ccc(-c2ccon2)cc1"
+      }
+    ]
+  },
+  "pair_construction": {
+    "eligible_one_change_pairs": 55302,
+    "threshold_pair_counts": {
+      "10": 27008,
+      "20": 16330,
+      "30": 10248,
+      "40": 6129
+    },
+    "preference_gap_pp": 20.0,
+    "high_similarity_cutoff": 0.9,
+    "tree_similarity_cutoff": 0.8,
+    "cliff_gap_pp": 40.0,
+    "pairs": 16330,
+    "high_similarity_pairs": 3197,
+    "route_cliff_candidates": 1441,
+    "target_split": {
+      "CCc1ccc(Nc2ccc(C)cc2)cc1": "train",
+      "COc1ccc(Nc2ccc(C)cc2)cc1": "train",
+      "Cc1ccc(Nc2ccc(C(F)(F)F)cc2)cc1": "train",
+      "Cc1ccc(Nc2ccccn2)cc1": "test",
+      "Cc1ccc(Nc2cccnc2)cc1": "validation"
+    },
+    "by_split": {
+      "train": 7907,
+      "validation": 4078,
+      "test": 4345
+    },
+    "by_changed_component": {
+      "Aryl halide": 1520,
+      "Ligand": 1466,
+      "Base": 994,
+      "Additive": 12350
+    }
+  },
+  "encoder": {
+    "checkpoint": "/home/doubo/projects/SynthesisNet-master/ckpts/3-RXN/ckpts.epoch=27-val_accuracy_loss=0.36.ckpt",
+    "config": {
+      "c_in": 4219,
+      "c_hidden": 1200,
+      "c_out": 347,
+      "num_layers": 5,
+      "layer_name": "Transformer",
+      "dp_rate": 0.5
+    },
+    "node_hidden_shape": [
+      60,
+      1200
+    ],
+    "z_tree_shape": [
+      15,
+      1200
+    ],
+    "prediction_shape": [
+      60,
+      347
+    ],
+    "predictions_bitwise_unchanged": true,
+    "embeddings_repeat_exact": true,
+    "finite": true,
+    "single_vs_batch_max_abs_error": 4.291534423828125e-06,
+    "prediction_sha256": "e42a2c4d8033a1b330cf8fc364775fb57387ac011b9e6a8ac8eb9c0c531396b1"
+  },
+  "additional_checkpoint_verification": [
+    {
+      "checkpoint": "/home/doubo/projects/SynthesisNet-master/ckpts/3-NN/ckpts.epoch=7-val_nn_accuracy_loss=0.67.ckpt",
+      "node_hidden_shape": [
+        8,
+        1200
+      ],
+      "z_tree_shape": [
+        2,
+        1200
+      ],
+      "prediction_shape": [
+        8,
+        347
+      ],
+      "predictions_bitwise_unchanged": true,
+      "embeddings_repeat_exact": true,
+      "finite": true,
+      "single_vs_batch_max_abs_error": 1.7881393432617188e-07,
+      "prediction_sha256": "ff4aef6f3de8993e3c3aa9fd94f8764628aa28070023eff09d82cbec628c8e40"
+    }
+  ],
+  "native_unique_trees": 15,
+  "experimental_route_records": 3955,
+  "per_route_z_tree_shape": [
+    3955,
+    1200
+  ],
+  "aryl_order": [
+    "Brc1ccccn1",
+    "Brc1cccnc1",
+    "CCc1ccc(Br)cc1",
+    "CCc1ccc(Cl)cc1",
+    "CCc1ccc(I)cc1",
+    "COc1ccc(Br)cc1",
+    "COc1ccc(Cl)cc1",
+    "COc1ccc(I)cc1",
+    "Clc1ccccn1",
+    "Clc1cccnc1",
+    "FC(F)(F)c1ccc(Br)cc1",
+    "FC(F)(F)c1ccc(Cl)cc1",
+    "FC(F)(F)c1ccc(I)cc1",
+    "Ic1ccccn1",
+    "Ic1cccnc1"
+  ],
+  "results": {
+    "pretrained_tree": {
+      "primary_split": {
+        "best_epoch": 1,
+        "validation_logistic_loss": 0.6938080787658691,
+        "epochs": 200,
+        "learning_rate": 0.01,
+        "weight_decay": 0.001,
+        "seed": 0,
+        "history": [
+          {
+            "epoch": 1,
+            "train_pairwise_logistic_loss": 0.6931473612785339,
+            "validation_pairwise_logistic_loss": 0.6938080787658691
+          },
+          {
+            "epoch": 20,
+            "train_pairwise_logistic_loss": 0.6671005487442017,
+            "validation_pairwise_logistic_loss": 0.7141537070274353
+          },
+          {
+            "epoch": 40,
+            "train_pairwise_logistic_loss": 0.6527305841445923,
+            "validation_pairwise_logistic_loss": 0.744735836982727
+          },
+          {
+            "epoch": 60,
+            "train_pairwise_logistic_loss": 0.6444085240364075,
+            "validation_pairwise_logistic_loss": 0.7760660648345947
+          },
+          {
+            "epoch": 80,
+            "train_pairwise_logistic_loss": 0.6386906504631042,
+            "validation_pairwise_logistic_loss": 0.804622232913971
+          },
+          {
+            "epoch": 100,
+            "train_pairwise_logistic_loss": 0.6343909502029419,
+            "validation_pairwise_logistic_loss": 0.8297827839851379
+          },
+          {
+            "epoch": 120,
+            "train_pairwise_logistic_loss": 0.6309905052185059,
+            "validation_pairwise_logistic_loss": 0.8518414497375488
+          },
+          {
+            "epoch": 140,
+            "train_pairwise_logistic_loss": 0.6282117962837219,
+            "validation_pairwise_logistic_loss": 0.8712811470031738
+          },
+          {
+            "epoch": 160,
+            "train_pairwise_logistic_loss": 0.6258889436721802,
+            "validation_pairwise_logistic_loss": 0.888556957244873
+          },
+          {
+            "epoch": 180,
+            "train_pairwise_logistic_loss": 0.6239145994186401,
+            "validation_pairwise_logistic_loss": 0.9040466547012329
+          },
+          {
+            "epoch": 200,
+            "train_pairwise_logistic_loss": 0.6222149133682251,
+            "validation_pairwise_logistic_loss": 0.9180523753166199
+          }
+        ],
+        "splits": {
+          "train": {
+            "overall": {
+              "n": 7907,
+              "accuracy": 0.5567218919944353,
+              "accuracy_ties_half": 0.5604527633742253,
+              "ties": 6875,
+              "roc_auc": 0.6135109811297045,
+              "positive_labels": 3918
+            },
+            "high_similarity": {
+              "n": 1779,
+              "accuracy": 0.774592467678471,
+              "accuracy_ties_half": 0.768690275435638,
+              "ties": 747,
+              "roc_auc": 0.8914356854864193,
+              "positive_labels": 894
+            },
+            "route_cliff": {
+              "n": 755,
+              "accuracy": 0.8437086092715231,
+              "accuracy_ties_half": 0.8337748344370861,
+              "ties": 247,
+              "roc_auc": 0.944940350877193,
+              "positive_labels": 375
+            },
+            "halide_alternative": {
+              "n": 1032,
+              "accuracy": 0.9631782945736435,
+              "accuracy_ties_half": 0.9631782945736435,
+              "ties": 0,
+              "roc_auc": 0.9924648786717752,
+              "positive_labels": 510
+            },
+            "condition_only": {
+              "n": 6875,
+              "accuracy": 0.49570909090909093,
+              "accuracy_ties_half": 0.5,
+              "ties": 6875,
+              "roc_auc": 0.5,
+              "positive_labels": 3408
+            },
+            "multi_candidate": {
+              "valid_groups": 47,
+              "ndcg_at_3": 0.9761223318897353,
+              "mrr": 0.9148936170212766,
+              "relevance": "ordinal pairwise wins, not numerical yield",
+              "tie_rule": "average all equally scored permutations"
+            }
+          },
+          "validation": {
+            "overall": {
+              "n": 4078,
+              "accuracy": 0.48921039725355564,
+              "accuracy_ties_half": 0.49190779794016676,
+              "ties": 3716,
+              "roc_auc": 0.4826873044401938,
+              "positive_labels": 2024
+            },
+            "high_similarity": {
+              "n": 774,
+              "accuracy": 0.4444444444444444,
+              "accuracy_ties_half": 0.4573643410852713,
+              "ties": 412,
+              "roc_auc": 0.3832275878667942,
+              "positive_labels": 373
+            },
+            "route_cliff": {
+              "n": 431,
+              "accuracy": 0.4361948955916473,
+              "accuracy_ties_half": 0.4582366589327146,
+              "ties": 197,
+              "roc_auc": 0.36756209037599175,
+              "positive_labels": 208
+            },
+            "halide_alternative": {
+              "n": 362,
+              "accuracy": 0.4088397790055249,
+              "accuracy_ties_half": 0.4088397790055249,
+              "ties": 0,
+              "roc_auc": 0.17176668193617345,
+              "positive_labels": 177
+            },
+            "condition_only": {
+              "n": 3716,
+              "accuracy": 0.4970398277717976,
+              "accuracy_ties_half": 0.5,
+              "ties": 3716,
+              "roc_auc": 0.5,
+              "positive_labels": 1847
+            },
+            "multi_candidate": {
+              "valid_groups": 20,
+              "ndcg_at_3": 0.7531734684244782,
+              "mrr": 0.33333333333333326,
+              "relevance": "ordinal pairwise wins, not numerical yield",
+              "tie_rule": "average all equally scored permutations"
+            }
+          },
+          "test": {
+            "overall": {
+              "n": 4345,
+              "accuracy": 0.5065592635212889,
+              "accuracy_ties_half": 0.5096662830840046,
+              "ties": 4219,
+              "roc_auc": 0.5189975217629723,
+              "positive_labels": 2156
+            },
+            "high_similarity": {
+              "n": 644,
+              "accuracy": 0.5714285714285714,
+              "accuracy_ties_half": 0.5652173913043478,
+              "ties": 518,
+              "roc_auc": 0.615472160334867,
+              "positive_labels": 323
+            },
+            "route_cliff": {
+              "n": 255,
+              "accuracy": 0.5568627450980392,
+              "accuracy_ties_half": 0.5215686274509804,
+              "ties": 234,
+              "roc_auc": 0.5409259259259258,
+              "positive_labels": 135
+            },
+            "halide_alternative": {
+              "n": 126,
+              "accuracy": 0.8333333333333334,
+              "accuracy_ties_half": 0.8333333333333334,
+              "ties": 0,
+              "roc_auc": 0.774368686868687,
+              "positive_labels": 60
+            },
+            "condition_only": {
+              "n": 4219,
+              "accuracy": 0.496800189618393,
+              "accuracy_ties_half": 0.5,
+              "ties": 4219,
+              "roc_auc": 0.5,
+              "positive_labels": 2096
+            },
+            "multi_candidate": {
+              "valid_groups": 4,
+              "ndcg_at_3": 0.8597186998521972,
+              "mrr": 0.5,
+              "relevance": "ordinal pairwise wins, not numerical yield",
+              "tie_rule": "average all equally scored permutations"
+            }
+          }
+        },
+        "fold": 0,
+        "target_split": {
+          "CCc1ccc(Nc2ccc(C)cc2)cc1": "train",
+          "COc1ccc(Nc2ccc(C)cc2)cc1": "train",
+          "Cc1ccc(Nc2ccc(C(F)(F)F)cc2)cc1": "train",
+          "Cc1ccc(Nc2ccccn2)cc1": "test",
+          "Cc1ccc(Nc2cccnc2)cc1": "validation"
+        }
+      },
+      "leave_one_scaffold_out": [
+        {
+          "best_epoch": 1,
+          "validation_logistic_loss": 0.6938080787658691,
+          "epochs": 200,
+          "learning_rate": 0.01,
+          "weight_decay": 0.001,
+          "seed": 0,
+          "history": [
+            {
+              "epoch": 1,
+              "train_pairwise_logistic_loss": 0.6931473612785339,
+              "validation_pairwise_logistic_loss": 0.6938080787658691
+            },
+            {
+              "epoch": 20,
+              "train_pairwise_logistic_loss": 0.6671005487442017,
+              "validation_pairwise_logistic_loss": 0.7141537070274353
+            },
+            {
+              "epoch": 40,
+              "train_pairwise_logistic_loss": 0.6527305841445923,
+              "validation_pairwise_logistic_loss": 0.744735836982727
+            },
+            {
+              "epoch": 60,
+              "train_pairwise_logistic_loss": 0.6444085240364075,
+              "validation_pairwise_logistic_loss": 0.7760660648345947
+            },
+            {
+              "epoch": 80,
+              "train_pairwise_logistic_loss": 0.6386906504631042,
+              "validation_pairwise_logistic_loss": 0.804622232913971
+            },
+            {
+              "epoch": 100,
+              "train_pairwise_logistic_loss": 0.6343909502029419,
+              "validation_pairwise_logistic_loss": 0.8297827839851379
+            },
+            {
+              "epoch": 120,
+              "train_pairwise_logistic_loss": 0.6309905052185059,
+              "validation_pairwise_logistic_loss": 0.8518414497375488
+            },
+            {
+              "epoch": 140,
+              "train_pairwise_logistic_loss": 0.6282117962837219,
+              "validation_pairwise_logistic_loss": 0.8712811470031738
+            },
+            {
+              "epoch": 160,
+              "train_pairwise_logistic_loss": 0.6258889436721802,
+              "validation_pairwise_logistic_loss": 0.888556957244873
+            },
+            {
+              "epoch": 180,
+              "train_pairwise_logistic_loss": 0.6239145994186401,
+              "validation_pairwise_logistic_loss": 0.9040466547012329
+            },
+            {
+              "epoch": 200,
+              "train_pairwise_logistic_loss": 0.6222149133682251,
+              "validation_pairwise_logistic_loss": 0.9180523753166199
+            }
+          ],
+          "splits": {
+            "train": {
+              "overall": {
+                "n": 7907,
+                "accuracy": 0.5567218919944353,
+                "accuracy_ties_half": 0.5604527633742253,
+                "ties": 6875,
+                "roc_auc": 0.6135109811297045,
+                "positive_labels": 3918
+              },
+              "high_similarity": {
+                "n": 1779,
+                "accuracy": 0.774592467678471,
+                "accuracy_ties_half": 0.768690275435638,
+                "ties": 747,
+                "roc_auc": 0.8914356854864193,
+                "positive_labels": 894
+              },
+              "route_cliff": {
+                "n": 755,
+                "accuracy": 0.8437086092715231,
+                "accuracy_ties_half": 0.8337748344370861,
+                "ties": 247,
+                "roc_auc": 0.944940350877193,
+                "positive_labels": 375
+              },
+              "halide_alternative": {
+                "n": 1032,
+                "accuracy": 0.9631782945736435,
+                "accuracy_ties_half": 0.9631782945736435,
+                "ties": 0,
+                "roc_auc": 0.9924648786717752,
+                "positive_labels": 510
+              },
+              "condition_only": {
+                "n": 6875,
+                "accuracy": 0.49570909090909093,
+                "accuracy_ties_half": 0.5,
+                "ties": 6875,
+                "roc_auc": 0.5,
+                "positive_labels": 3408
+              },
+              "multi_candidate": {
+                "valid_groups": 47,
+                "ndcg_at_3": 0.9761223318897353,
+                "mrr": 0.9148936170212766,
+                "relevance": "ordinal pairwise wins, not numerical yield",
+                "tie_rule": "average all equally scored permutations"
+              }
+            },
+            "validation": {
+              "overall": {
+                "n": 4078,
+                "accuracy": 0.48921039725355564,
+                "accuracy_ties_half": 0.49190779794016676,
+                "ties": 3716,
+                "roc_auc": 0.4826873044401938,
+                "positive_labels": 2024
+              },
+              "high_similarity": {
+                "n": 774,
+                "accuracy": 0.4444444444444444,
+                "accuracy_ties_half": 0.4573643410852713,
+                "ties": 412,
+                "roc_auc": 0.3832275878667942,
+                "positive_labels": 373
+              },
+              "route_cliff": {
+                "n": 431,
+                "accuracy": 0.4361948955916473,
+                "accuracy_ties_half": 0.4582366589327146,
+                "ties": 197,
+                "roc_auc": 0.36756209037599175,
+                "positive_labels": 208
+              },
+              "halide_alternative": {
+                "n": 362,
+                "accuracy": 0.4088397790055249,
+                "accuracy_ties_half": 0.4088397790055249,
+                "ties": 0,
+                "roc_auc": 0.17176668193617345,
+                "positive_labels": 177
+              },
+              "condition_only": {
+                "n": 3716,
+                "accuracy": 0.4970398277717976,
+                "accuracy_ties_half": 0.5,
+                "ties": 3716,
+                "roc_auc": 0.5,
+                "positive_labels": 1847
+              },
+              "multi_candidate": {
+                "valid_groups": 20,
+                "ndcg_at_3": 0.7531734684244782,
+                "mrr": 0.33333333333333326,
+                "relevance": "ordinal pairwise wins, not numerical yield",
+                "tie_rule": "average all equally scored permutations"
+              }
+            },
+            "test": {
+              "overall": {
+                "n": 4345,
+                "accuracy": 0.5065592635212889,
+                "accuracy_ties_half": 0.5096662830840046,
+                "ties": 4219,
+                "roc_auc": 0.5189975217629723,
+                "positive_labels": 2156
+              },
+              "high_similarity": {
+                "n": 644,
+                "accuracy": 0.5714285714285714,
+                "accuracy_ties_half": 0.5652173913043478,
+                "ties": 518,
+                "roc_auc": 0.615472160334867,
+                "positive_labels": 323
+              },
+              "route_cliff": {
+                "n": 255,
+                "accuracy": 0.5568627450980392,
+                "accuracy_ties_half": 0.5215686274509804,
+                "ties": 234,
+                "roc_auc": 0.5409259259259258,
+                "positive_labels": 135
+              },
+              "halide_alternative": {
+                "n": 126,
+                "accuracy": 0.8333333333333334,
+                "accuracy_ties_half": 0.8333333333333334,
+                "ties": 0,
+                "roc_auc": 0.774368686868687,
+                "positive_labels": 60
+              },
+              "condition_only": {
+                "n": 4219,
+                "accuracy": 0.496800189618393,
+                "accuracy_ties_half": 0.5,
+                "ties": 4219,
+                "roc_auc": 0.5,
+                "positive_labels": 2096
+              },
+              "multi_candidate": {
+                "valid_groups": 4,
+                "ndcg_at_3": 0.8597186998521972,
+                "mrr": 0.5,
+                "relevance": "ordinal pairwise wins, not numerical yield",
+                "tie_rule": "average all equally scored permutations"
+              }
+            }
+          },
+          "fold": 0,
+          "target_split": {
+            "CCc1ccc(Nc2ccc(C)cc2)cc1": "train",
+            "COc1ccc(Nc2ccc(C)cc2)cc1": "train",
+            "Cc1ccc(Nc2ccc(C(F)(F)F)cc2)cc1": "train",
+            "Cc1ccc(Nc2ccccn2)cc1": "test",
+            "Cc1ccc(Nc2cccnc2)cc1": "validation"
+          }
+        },
+        {
+          "best_epoch": 1,
+          "validation_logistic_loss": 0.6941437721252441,
+          "epochs": 200,
+          "learning_rate": 0.01,
+          "weight_decay": 0.001,
+          "seed": 0,
+          "history": [
+            {
+              "epoch": 1,
+              "train_pairwise_logistic_loss": 0.6931473016738892,
+              "validation_pairwise_logistic_loss": 0.6941437721252441
+            },
+            {
+              "epoch": 20,
+              "train_pairwise_logistic_loss": 0.6693549156188965,
+              "validation_pairwise_logistic_loss": 0.7210088968276978
+            },
+            {
+              "epoch": 40,
+              "train_pairwise_logistic_loss": 0.6589959263801575,
+              "validation_pairwise_logistic_loss": 0.7335218191146851
+            },
+            {
+              "epoch": 60,
+              "train_pairwise_logistic_loss": 0.6528170108795166,
+              "validation_pairwise_logistic_loss": 0.7260319590568542
+            },
+            {
+              "epoch": 80,
+              "train_pairwise_logistic_loss": 0.6486868262290955,
+              "validation_pairwise_logistic_loss": 0.7162120342254639
+            },
+            {
+              "epoch": 100,
+              "train_pairwise_logistic_loss": 0.6459109783172607,
+              "validation_pairwise_logistic_loss": 0.7102121114730835
+            },
+            {
+              "epoch": 120,
+              "train_pairwise_logistic_loss": 0.6439799070358276,
+              "validation_pairwise_logistic_loss": 0.7070733308792114
+            },
+            {
+              "epoch": 140,
+              "train_pairwise_logistic_loss": 0.6425912976264954,
+              "validation_pairwise_logistic_loss": 0.7053169012069702
+            },
+            {
+              "epoch": 160,
+              "train_pairwise_logistic_loss": 0.6415632367134094,
+              "validation_pairwise_logistic_loss": 0.7042565941810608
+            },
+            {
+              "epoch": 180,
+              "train_pairwise_logistic_loss": 0.6407828330993652,
+              "validation_pairwise_logistic_loss": 0.7036177515983582
+            },
+            {
+              "epoch": 200,
+              "train_pairwise_logistic_loss": 0.6401775479316711,
+              "validation_pairwise_logistic_loss": 0.7032588124275208
+            }
+          ],
+          "splits": {
+            "train": {
+              "overall": {
+                "n": 4078,
+                "accuracy": 0.5407062285434037,
+                "accuracy_ties_half": 0.5434036292300147,
+                "ties": 3716,
+                "roc_auc": 0.5829741254892603,
+                "positive_labels": 2024
+              },
+              "high_similarity": {
+                "n": 774,
+                "accuracy": 0.7157622739018088,
+                "accuracy_ties_half": 0.7286821705426356,
+                "ties": 412,
+                "roc_auc": 0.8513200911929292,
+                "positive_labels": 373
+              },
+              "route_cliff": {
+                "n": 431,
+                "accuracy": 0.7494199535962877,
+                "accuracy_ties_half": 0.771461716937355,
+                "ties": 197,
+                "roc_auc": 0.8963866850638151,
+                "positive_labels": 208
+              },
+              "halide_alternative": {
+                "n": 362,
+                "accuracy": 0.988950276243094,
+                "accuracy_ties_half": 0.988950276243094,
+                "ties": 0,
+                "roc_auc": 0.9924721331500992,
+                "positive_labels": 177
+              },
+              "condition_only": {
+                "n": 3716,
+                "accuracy": 0.4970398277717976,
+                "accuracy_ties_half": 0.5,
+                "ties": 3716,
+                "roc_auc": 0.5,
+                "positive_labels": 1847
+              },
+              "multi_candidate": {
+                "valid_groups": 20,
+                "ndcg_at_3": 0.9975117208394918,
+                "mrr": 1.0,
+                "relevance": "ordinal pairwise wins, not numerical yield",
+                "tie_rule": "average all equally scored permutations"
+              }
+            },
+            "validation": {
+              "overall": {
+                "n": 4345,
+                "accuracy": 0.4872266973532796,
+                "accuracy_ties_half": 0.4903337169159954,
+                "ties": 4219,
+                "roc_auc": 0.48100247823702763,
+                "positive_labels": 2156
+              },
+              "high_similarity": {
+                "n": 644,
+                "accuracy": 0.4409937888198758,
+                "accuracy_ties_half": 0.43478260869565216,
+                "ties": 518,
+                "roc_auc": 0.38452783966513315,
+                "positive_labels": 323
+              },
+              "route_cliff": {
+                "n": 255,
+                "accuracy": 0.5137254901960784,
+                "accuracy_ties_half": 0.47843137254901963,
+                "ties": 234,
+                "roc_auc": 0.45907407407407413,
+                "positive_labels": 135
+              },
+              "halide_alternative": {
+                "n": 126,
+                "accuracy": 0.16666666666666666,
+                "accuracy_ties_half": 0.16666666666666666,
+                "ties": 0,
+                "roc_auc": 0.22563131313131307,
+                "positive_labels": 60
+              },
+              "condition_only": {
+                "n": 4219,
+                "accuracy": 0.496800189618393,
+                "accuracy_ties_half": 0.5,
+                "ties": 4219,
+                "roc_auc": 0.5,
+                "positive_labels": 2096
+              },
+              "multi_candidate": {
+                "valid_groups": 4,
+                "ndcg_at_3": 0.66967181649423,
+                "mrr": 0.5,
+                "relevance": "ordinal pairwise wins, not numerical yield",
+                "tie_rule": "average all equally scored permutations"
+              }
+            },
+            "test": {
+              "overall": {
+                "n": 7907,
+                "accuracy": 0.4893132667256861,
+                "accuracy_ties_half": 0.49304413810547615,
+                "ties": 6875,
+                "roc_auc": 0.48500227335228036,
+                "positive_labels": 3918
+              },
+              "high_similarity": {
+                "n": 1779,
+                "accuracy": 0.4749859471613266,
+                "accuracy_ties_half": 0.4690837549184935,
+                "ties": 747,
+                "roc_auc": 0.4171905610536028,
+                "positive_labels": 894
+              },
+              "route_cliff": {
+                "n": 755,
+                "accuracy": 0.5933774834437087,
+                "accuracy_ties_half": 0.5834437086092715,
+                "ties": 247,
+                "roc_auc": 0.5194666666666667,
+                "positive_labels": 375
+              },
+              "halide_alternative": {
+                "n": 1032,
+                "accuracy": 0.44670542635658916,
+                "accuracy_ties_half": 0.44670542635658916,
+                "ties": 0,
+                "roc_auc": 0.33070392908121105,
+                "positive_labels": 510
+              },
+              "condition_only": {
+                "n": 6875,
+                "accuracy": 0.49570909090909093,
+                "accuracy_ties_half": 0.5,
+                "ties": 6875,
+                "roc_auc": 0.5,
+                "positive_labels": 3408
+              },
+              "multi_candidate": {
+                "valid_groups": 47,
+                "ndcg_at_3": 0.9353031886440959,
+                "mrr": 0.8865248226950357,
+                "relevance": "ordinal pairwise wins, not numerical yield",
+                "tie_rule": "average all equally scored permutations"
+              }
+            }
+          },
+          "fold": 1,
+          "target_split": {
+            "CCc1ccc(Nc2ccc(C)cc2)cc1": "test",
+            "COc1ccc(Nc2ccc(C)cc2)cc1": "test",
+            "Cc1ccc(Nc2ccc(C(F)(F)F)cc2)cc1": "test",
+            "Cc1ccc(Nc2ccccn2)cc1": "validation",
+            "Cc1ccc(Nc2cccnc2)cc1": "train"
+          }
+        },
+        {
+          "best_epoch": 1,
+          "validation_logistic_loss": 0.6942180395126343,
+          "epochs": 200,
+          "learning_rate": 0.01,
+          "weight_decay": 0.001,
+          "seed": 0,
+          "history": [
+            {
+              "epoch": 1,
+              "train_pairwise_logistic_loss": 0.6931471824645996,
+              "validation_pairwise_logistic_loss": 0.6942180395126343
+            },
+            {
+              "epoch": 20,
+              "train_pairwise_logistic_loss": 0.6768413186073303,
+              "validation_pairwise_logistic_loss": 0.7174521684646606
+            },
+            {
+              "epoch": 40,
+              "train_pairwise_logistic_loss": 0.6750192046165466,
+              "validation_pairwise_logistic_loss": 0.7411625385284424
+            },
+            {
+              "epoch": 60,
+              "train_pairwise_logistic_loss": 0.6744736433029175,
+              "validation_pairwise_logistic_loss": 0.7580669522285461
+            },
+            {
+              "epoch": 80,
+              "train_pairwise_logistic_loss": 0.674293577671051,
+              "validation_pairwise_logistic_loss": 0.7688072323799133
+            },
+            {
+              "epoch": 100,
+              "train_pairwise_logistic_loss": 0.6741961240768433,
+              "validation_pairwise_logistic_loss": 0.776516854763031
+            },
+            {
+              "epoch": 120,
+              "train_pairwise_logistic_loss": 0.6741365194320679,
+              "validation_pairwise_logistic_loss": 0.7827868461608887
+            },
+            {
+              "epoch": 140,
+              "train_pairwise_logistic_loss": 0.6740979552268982,
+              "validation_pairwise_logistic_loss": 0.7881133556365967
+            },
+            {
+              "epoch": 160,
+              "train_pairwise_logistic_loss": 0.674071729183197,
+              "validation_pairwise_logistic_loss": 0.792669415473938
+            },
+            {
+              "epoch": 180,
+              "train_pairwise_logistic_loss": 0.6740531921386719,
+              "validation_pairwise_logistic_loss": 0.7965782284736633
+            },
+            {
+              "epoch": 200,
+              "train_pairwise_logistic_loss": 0.6740399599075317,
+              "validation_pairwise_logistic_loss": 0.7999504804611206
+            }
+          ],
+          "splits": {
+            "train": {
+              "overall": {
+                "n": 4345,
+                "accuracy": 0.5065592635212889,
+                "accuracy_ties_half": 0.5096662830840046,
+                "ties": 4219,
+                "roc_auc": 0.5191623702930235,
+                "positive_labels": 2156
+              },
+              "high_similarity": {
+                "n": 644,
+                "accuracy": 0.5714285714285714,
+                "accuracy_ties_half": 0.5652173913043478,
+                "ties": 518,
+                "roc_auc": 0.6229758012403191,
+                "positive_labels": 323
+              },
+              "route_cliff": {
+                "n": 255,
+                "accuracy": 0.5568627450980392,
+                "accuracy_ties_half": 0.5215686274509804,
+                "ties": 234,
+                "roc_auc": 0.5429629629629629,
+                "positive_labels": 135
+              },
+              "halide_alternative": {
+                "n": 126,
+                "accuracy": 0.8333333333333334,
+                "accuracy_ties_half": 0.8333333333333334,
+                "ties": 0,
+                "roc_auc": 0.9708333333333333,
+                "positive_labels": 60
+              },
+              "condition_only": {
+                "n": 4219,
+                "accuracy": 0.496800189618393,
+                "accuracy_ties_half": 0.5,
+                "ties": 4219,
+                "roc_auc": 0.5,
+                "positive_labels": 2096
+              },
+              "multi_candidate": {
+                "valid_groups": 4,
+                "ndcg_at_3": 0.8597186998521972,
+                "mrr": 0.5,
+                "relevance": "ordinal pairwise wins, not numerical yield",
+                "tie_rule": "average all equally scored permutations"
+              }
+            },
+            "validation": {
+              "overall": {
+                "n": 7907,
+                "accuracy": 0.463766283040344,
+                "accuracy_ties_half": 0.46749715442013406,
+                "ties": 6875,
+                "roc_auc": 0.4395510957839521,
+                "positive_labels": 3918
+              },
+              "high_similarity": {
+                "n": 1779,
+                "accuracy": 0.3614390106801574,
+                "accuracy_ties_half": 0.3555368184373243,
+                "ties": 747,
+                "roc_auc": 0.30032356324018256,
+                "positive_labels": 894
+              },
+              "route_cliff": {
+                "n": 755,
+                "accuracy": 0.3337748344370861,
+                "accuracy_ties_half": 0.32384105960264903,
+                "ties": 247,
+                "roc_auc": 0.2844982456140351,
+                "positive_labels": 375
+              },
+              "halide_alternative": {
+                "n": 1032,
+                "accuracy": 0.250968992248062,
+                "accuracy_ties_half": 0.250968992248062,
+                "ties": 0,
+                "roc_auc": 0.2678085793704455,
+                "positive_labels": 510
+              },
+              "condition_only": {
+                "n": 6875,
+                "accuracy": 0.49570909090909093,
+                "accuracy_ties_half": 0.5,
+                "ties": 6875,
+                "roc_auc": 0.5,
+                "positive_labels": 3408
+              },
+              "multi_candidate": {
+                "valid_groups": 47,
+                "ndcg_at_3": 0.7174271527147587,
+                "mrr": 0.5851063829787234,
+                "relevance": "ordinal pairwise wins, not numerical yield",
+                "tie_rule": "average all equally scored permutations"
+              }
+            },
+            "test": {
+              "overall": {
+                "n": 4078,
+                "accuracy": 0.46125551741049536,
+                "accuracy_ties_half": 0.4639529180971064,
+                "ties": 3716,
+                "roc_auc": 0.43055221470879146,
+                "positive_labels": 2024
+              },
+              "high_similarity": {
+                "n": 774,
+                "accuracy": 0.2971576227390181,
+                "accuracy_ties_half": 0.31007751937984496,
+                "ties": 412,
+                "roc_auc": 0.19328020431494985,
+                "positive_labels": 373
+              },
+              "route_cliff": {
+                "n": 431,
+                "accuracy": 0.2273781902552204,
+                "accuracy_ties_half": 0.2494199535962877,
+                "ties": 197,
+                "roc_auc": 0.12405139703345981,
+                "positive_labels": 208
+              },
+              "halide_alternative": {
+                "n": 362,
+                "accuracy": 0.09392265193370165,
+                "accuracy_ties_half": 0.09392265193370165,
+                "ties": 0,
+                "roc_auc": 0.02191174225072528,
+                "positive_labels": 177
+              },
+              "condition_only": {
+                "n": 3716,
+                "accuracy": 0.4970398277717976,
+                "accuracy_ties_half": 0.5,
+                "ties": 3716,
+                "roc_auc": 0.5,
+                "positive_labels": 1847
+              },
+              "multi_candidate": {
+                "valid_groups": 20,
+                "ndcg_at_3": 0.6791741606621283,
+                "mrr": 0.5,
+                "relevance": "ordinal pairwise wins, not numerical yield",
+                "tie_rule": "average all equally scored permutations"
+              }
+            }
+          },
+          "fold": 2,
+          "target_split": {
+            "CCc1ccc(Nc2ccc(C)cc2)cc1": "validation",
+            "COc1ccc(Nc2ccc(C)cc2)cc1": "validation",
+            "Cc1ccc(Nc2ccc(C(F)(F)F)cc2)cc1": "validation",
+            "Cc1ccc(Nc2ccccn2)cc1": "train",
+            "Cc1ccc(Nc2cccnc2)cc1": "test"
+          }
+        }
+      ],
+      "mean_test_accuracy": 0.4857093492191568,
+      "mean_test_halide_accuracy": 0.45798713720787476,
+      "macro_scaffold_test": {
+        "overall": {
+          "accuracy": 0.4857093492191568,
+          "accuracy_ties_half": 0.4888877797621958,
+          "roc_auc": 0.47818400327468136
+        },
+        "high_similarity": {
+          "accuracy": 0.447857380442972,
+          "accuracy_ties_half": 0.44812622186756207,
+          "roc_auc": 0.40864764190113984
+        },
+        "route_cliff": {
+          "accuracy": 0.4592061395989894,
+          "accuracy_ties_half": 0.45147742988551326,
+          "roc_auc": 0.39481466320868414
+        },
+        "halide_alternative": {
+          "accuracy": 0.45798713720787476,
+          "accuracy_ties_half": 0.45798713720787476,
+          "roc_auc": 0.3756614527335411
+        },
+        "condition_only": {
+          "accuracy": 0.49651636943309385,
+          "accuracy_ties_half": 0.5,
+          "roc_auc": 0.5
+        }
+      }
+    },
+    "random_tree": {
+      "primary_split": {
+        "best_epoch": 7,
+        "validation_logistic_loss": 0.6375176906585693,
+        "epochs": 200,
+        "learning_rate": 0.01,
+        "weight_decay": 0.001,
+        "seed": 0,
+        "history": [
+          {
+            "epoch": 1,
+            "train_pairwise_logistic_loss": 0.6931473612785339,
+            "validation_pairwise_logistic_loss": 0.6586049795150757
+          },
+          {
+            "epoch": 20,
+            "train_pairwise_logistic_loss": 0.602708637714386,
+            "validation_pairwise_logistic_loss": 0.6388555765151978
+          },
+          {
+            "epoch": 40,
+            "train_pairwise_logistic_loss": 0.6026884913444519,
+            "validation_pairwise_logistic_loss": 0.6396153569221497
+          },
+          {
+            "epoch": 60,
+            "train_pairwise_logistic_loss": 0.6026867628097534,
+            "validation_pairwise_logistic_loss": 0.639736533164978
+          },
+          {
+            "epoch": 80,
+            "train_pairwise_logistic_loss": 0.6026864051818848,
+            "validation_pairwise_logistic_loss": 0.6397558450698853
+          },
+          {
+            "epoch": 100,
+            "train_pairwise_logistic_loss": 0.6026861667633057,
+            "validation_pairwise_logistic_loss": 0.6397612690925598
+          },
+          {
+            "epoch": 120,
+            "train_pairwise_logistic_loss": 0.6026859879493713,
+            "validation_pairwise_logistic_loss": 0.6397660374641418
+          },
+          {
+            "epoch": 140,
+            "train_pairwise_logistic_loss": 0.602685809135437,
+            "validation_pairwise_logistic_loss": 0.6397716999053955
+          },
+          {
+            "epoch": 160,
+            "train_pairwise_logistic_loss": 0.6026856303215027,
+            "validation_pairwise_logistic_loss": 0.6397788524627686
+          },
+          {
+            "epoch": 180,
+            "train_pairwise_logistic_loss": 0.6026854515075684,
+            "validation_pairwise_logistic_loss": 0.6397871971130371
+          },
+          {
+            "epoch": 200,
+            "train_pairwise_logistic_loss": 0.602685272693634,
+            "validation_pairwise_logistic_loss": 0.6397969126701355
+          }
+        ],
+        "splits": {
+          "train": {
+            "overall": {
+              "n": 7907,
+              "accuracy": 0.56152776021247,
+              "accuracy_ties_half": 0.56525863159226,
+              "ties": 6875,
+              "roc_auc": 0.621997245871783,
+              "positive_labels": 3918
+            },
+            "high_similarity": {
+              "n": 1779,
+              "accuracy": 0.7959527824620574,
+              "accuracy_ties_half": 0.7900505902192243,
+              "ties": 747,
+              "roc_auc": 0.9119099078603117,
+              "positive_labels": 894
+            },
+            "route_cliff": {
+              "n": 755,
+              "accuracy": 0.8463576158940397,
+              "accuracy_ties_half": 0.8364238410596027,
+              "ties": 247,
+              "roc_auc": 0.9466807017543859,
+              "positive_labels": 375
+            },
+            "halide_alternative": {
+              "n": 1032,
+              "accuracy": 1.0,
+              "accuracy_ties_half": 1.0,
+              "ties": 0,
+              "roc_auc": 0.9999999999999999,
+              "positive_labels": 510
+            },
+            "condition_only": {
+              "n": 6875,
+              "accuracy": 0.49570909090909093,
+              "accuracy_ties_half": 0.5,
+              "ties": 6875,
+              "roc_auc": 0.5,
+              "positive_labels": 3408
+            },
+            "multi_candidate": {
+              "valid_groups": 47,
+              "ndcg_at_3": 1.0,
+              "mrr": 1.0,
+              "relevance": "ordinal pairwise wins, not numerical yield",
+              "tie_rule": "average all equally scored permutations"
+            }
+          },
+          "validation": {
+            "overall": {
+              "n": 4078,
+              "accuracy": 0.5407062285434037,
+              "accuracy_ties_half": 0.5434036292300147,
+              "ties": 3716,
+              "roc_auc": 0.5829635416867117,
+              "positive_labels": 2024
+            },
+            "high_similarity": {
+              "n": 774,
+              "accuracy": 0.7157622739018088,
+              "accuracy_ties_half": 0.7286821705426356,
+              "ties": 412,
+              "roc_auc": 0.8510259204535578,
+              "positive_labels": 373
+            },
+            "route_cliff": {
+              "n": 431,
+              "accuracy": 0.7494199535962877,
+              "accuracy_ties_half": 0.771461716937355,
+              "ties": 197,
+              "roc_auc": 0.8963866850638151,
+              "positive_labels": 208
+            },
+            "halide_alternative": {
+              "n": 362,
+              "accuracy": 0.988950276243094,
+              "accuracy_ties_half": 0.988950276243094,
+              "ties": 0,
+              "roc_auc": 0.9911284165521452,
+              "positive_labels": 177
+            },
+            "condition_only": {
+              "n": 3716,
+              "accuracy": 0.4970398277717976,
+              "accuracy_ties_half": 0.5,
+              "ties": 3716,
+              "roc_auc": 0.5,
+              "positive_labels": 1847
+            },
+            "multi_candidate": {
+              "valid_groups": 20,
+              "ndcg_at_3": 0.9975117208394918,
+              "mrr": 1.0,
+              "relevance": "ordinal pairwise wins, not numerical yield",
+              "tie_rule": "average all equally scored permutations"
+            }
+          },
+          "test": {
+            "overall": {
+              "n": 4345,
+              "accuracy": 0.511162255466053,
+              "accuracy_ties_half": 0.5142692750287687,
+              "ties": 4219,
+              "roc_auc": 0.5281194935717548,
+              "positive_labels": 2156
+            },
+            "high_similarity": {
+              "n": 644,
+              "accuracy": 0.6024844720496895,
+              "accuracy_ties_half": 0.5962732919254659,
+              "ties": 518,
+              "roc_auc": 0.6740738597455705,
+              "positive_labels": 323
+            },
+            "route_cliff": {
+              "n": 255,
+              "accuracy": 0.5764705882352941,
+              "accuracy_ties_half": 0.5411764705882353,
+              "ties": 234,
+              "roc_auc": 0.58,
+              "positive_labels": 135
+            },
+            "halide_alternative": {
+              "n": 126,
+              "accuracy": 0.9920634920634921,
+              "accuracy_ties_half": 0.9920634920634921,
+              "ties": 0,
+              "roc_auc": 0.998611111111111,
+              "positive_labels": 60
+            },
+            "condition_only": {
+              "n": 4219,
+              "accuracy": 0.496800189618393,
+              "accuracy_ties_half": 0.5,
+              "ties": 4219,
+              "roc_auc": 0.5,
+              "positive_labels": 2096
+            },
+            "multi_candidate": {
+              "valid_groups": 4,
+              "ndcg_at_3": 1.0,
+              "mrr": 1.0,
+              "relevance": "ordinal pairwise wins, not numerical yield",
+              "tie_rule": "average all equally scored permutations"
+            }
+          }
+        },
+        "fold": 0,
+        "target_split": {
+          "CCc1ccc(Nc2ccc(C)cc2)cc1": "train",
+          "COc1ccc(Nc2ccc(C)cc2)cc1": "train",
+          "Cc1ccc(Nc2ccc(C(F)(F)F)cc2)cc1": "train",
+          "Cc1ccc(Nc2ccccn2)cc1": "test",
+          "Cc1ccc(Nc2cccnc2)cc1": "validation"
+        }
+      },
+      "leave_one_scaffold_out": [
+        {
+          "best_epoch": 7,
+          "validation_logistic_loss": 0.6375176906585693,
+          "epochs": 200,
+          "learning_rate": 0.01,
+          "weight_decay": 0.001,
+          "seed": 0,
+          "history": [
+            {
+              "epoch": 1,
+              "train_pairwise_logistic_loss": 0.6931473612785339,
+              "validation_pairwise_logistic_loss": 0.6586049795150757
+            },
+            {
+              "epoch": 20,
+              "train_pairwise_logistic_loss": 0.602708637714386,
+              "validation_pairwise_logistic_loss": 0.6388555765151978
+            },
+            {
+              "epoch": 40,
+              "train_pairwise_logistic_loss": 0.6026884913444519,
+              "validation_pairwise_logistic_loss": 0.6396153569221497
+            },
+            {
+              "epoch": 60,
+              "train_pairwise_logistic_loss": 0.6026867628097534,
+              "validation_pairwise_logistic_loss": 0.639736533164978
+            },
+            {
+              "epoch": 80,
+              "train_pairwise_logistic_loss": 0.6026864051818848,
+              "validation_pairwise_logistic_loss": 0.6397558450698853
+            },
+            {
+              "epoch": 100,
+              "train_pairwise_logistic_loss": 0.6026861667633057,
+              "validation_pairwise_logistic_loss": 0.6397612690925598
+            },
+            {
+              "epoch": 120,
+              "train_pairwise_logistic_loss": 0.6026859879493713,
+              "validation_pairwise_logistic_loss": 0.6397660374641418
+            },
+            {
+              "epoch": 140,
+              "train_pairwise_logistic_loss": 0.602685809135437,
+              "validation_pairwise_logistic_loss": 0.6397716999053955
+            },
+            {
+              "epoch": 160,
+              "train_pairwise_logistic_loss": 0.6026856303215027,
+              "validation_pairwise_logistic_loss": 0.6397788524627686
+            },
+            {
+              "epoch": 180,
+              "train_pairwise_logistic_loss": 0.6026854515075684,
+              "validation_pairwise_logistic_loss": 0.6397871971130371
+            },
+            {
+              "epoch": 200,
+              "train_pairwise_logistic_loss": 0.602685272693634,
+              "validation_pairwise_logistic_loss": 0.6397969126701355
+            }
+          ],
+          "splits": {
+            "train": {
+              "overall": {
+                "n": 7907,
+                "accuracy": 0.56152776021247,
+                "accuracy_ties_half": 0.56525863159226,
+                "ties": 6875,
+                "roc_auc": 0.621997245871783,
+                "positive_labels": 3918
+              },
+              "high_similarity": {
+                "n": 1779,
+                "accuracy": 0.7959527824620574,
+                "accuracy_ties_half": 0.7900505902192243,
+                "ties": 747,
+                "roc_auc": 0.9119099078603117,
+                "positive_labels": 894
+              },
+              "route_cliff": {
+                "n": 755,
+                "accuracy": 0.8463576158940397,
+                "accuracy_ties_half": 0.8364238410596027,
+                "ties": 247,
+                "roc_auc": 0.9466807017543859,
+                "positive_labels": 375
+              },
+              "halide_alternative": {
+                "n": 1032,
+                "accuracy": 1.0,
+                "accuracy_ties_half": 1.0,
+                "ties": 0,
+                "roc_auc": 0.9999999999999999,
+                "positive_labels": 510
+              },
+              "condition_only": {
+                "n": 6875,
+                "accuracy": 0.49570909090909093,
+                "accuracy_ties_half": 0.5,
+                "ties": 6875,
+                "roc_auc": 0.5,
+                "positive_labels": 3408
+              },
+              "multi_candidate": {
+                "valid_groups": 47,
+                "ndcg_at_3": 1.0,
+                "mrr": 1.0,
+                "relevance": "ordinal pairwise wins, not numerical yield",
+                "tie_rule": "average all equally scored permutations"
+              }
+            },
+            "validation": {
+              "overall": {
+                "n": 4078,
+                "accuracy": 0.5407062285434037,
+                "accuracy_ties_half": 0.5434036292300147,
+                "ties": 3716,
+                "roc_auc": 0.5829635416867117,
+                "positive_labels": 2024
+              },
+              "high_similarity": {
+                "n": 774,
+                "accuracy": 0.7157622739018088,
+                "accuracy_ties_half": 0.7286821705426356,
+                "ties": 412,
+                "roc_auc": 0.8510259204535578,
+                "positive_labels": 373
+              },
+              "route_cliff": {
+                "n": 431,
+                "accuracy": 0.7494199535962877,
+                "accuracy_ties_half": 0.771461716937355,
+                "ties": 197,
+                "roc_auc": 0.8963866850638151,
+                "positive_labels": 208
+              },
+              "halide_alternative": {
+                "n": 362,
+                "accuracy": 0.988950276243094,
+                "accuracy_ties_half": 0.988950276243094,
+                "ties": 0,
+                "roc_auc": 0.9911284165521452,
+                "positive_labels": 177
+              },
+              "condition_only": {
+                "n": 3716,
+                "accuracy": 0.4970398277717976,
+                "accuracy_ties_half": 0.5,
+                "ties": 3716,
+                "roc_auc": 0.5,
+                "positive_labels": 1847
+              },
+              "multi_candidate": {
+                "valid_groups": 20,
+                "ndcg_at_3": 0.9975117208394918,
+                "mrr": 1.0,
+                "relevance": "ordinal pairwise wins, not numerical yield",
+                "tie_rule": "average all equally scored permutations"
+              }
+            },
+            "test": {
+              "overall": {
+                "n": 4345,
+                "accuracy": 0.511162255466053,
+                "accuracy_ties_half": 0.5142692750287687,
+                "ties": 4219,
+                "roc_auc": 0.5281194935717548,
+                "positive_labels": 2156
+              },
+              "high_similarity": {
+                "n": 644,
+                "accuracy": 0.6024844720496895,
+                "accuracy_ties_half": 0.5962732919254659,
+                "ties": 518,
+                "roc_auc": 0.6740738597455705,
+                "positive_labels": 323
+              },
+              "route_cliff": {
+                "n": 255,
+                "accuracy": 0.5764705882352941,
+                "accuracy_ties_half": 0.5411764705882353,
+                "ties": 234,
+                "roc_auc": 0.58,
+                "positive_labels": 135
+              },
+              "halide_alternative": {
+                "n": 126,
+                "accuracy": 0.9920634920634921,
+                "accuracy_ties_half": 0.9920634920634921,
+                "ties": 0,
+                "roc_auc": 0.998611111111111,
+                "positive_labels": 60
+              },
+              "condition_only": {
+                "n": 4219,
+                "accuracy": 0.496800189618393,
+                "accuracy_ties_half": 0.5,
+                "ties": 4219,
+                "roc_auc": 0.5,
+                "positive_labels": 2096
+              },
+              "multi_candidate": {
+                "valid_groups": 4,
+                "ndcg_at_3": 1.0,
+                "mrr": 1.0,
+                "relevance": "ordinal pairwise wins, not numerical yield",
+                "tie_rule": "average all equally scored permutations"
+              }
+            }
+          },
+          "fold": 0,
+          "target_split": {
+            "CCc1ccc(Nc2ccc(C)cc2)cc1": "train",
+            "COc1ccc(Nc2ccc(C)cc2)cc1": "train",
+            "Cc1ccc(Nc2ccc(C(F)(F)F)cc2)cc1": "train",
+            "Cc1ccc(Nc2ccccn2)cc1": "test",
+            "Cc1ccc(Nc2cccnc2)cc1": "validation"
+          }
+        },
+        {
+          "best_epoch": 26,
+          "validation_logistic_loss": 0.6740168333053589,
+          "epochs": 200,
+          "learning_rate": 0.01,
+          "weight_decay": 0.001,
+          "seed": 0,
+          "history": [
+            {
+              "epoch": 1,
+              "train_pairwise_logistic_loss": 0.6931473016738892,
+              "validation_pairwise_logistic_loss": 0.6814751625061035
+            },
+            {
+              "epoch": 20,
+              "train_pairwise_logistic_loss": 0.6477673053741455,
+              "validation_pairwise_logistic_loss": 0.6740529537200928
+            },
+            {
+              "epoch": 40,
+              "train_pairwise_logistic_loss": 0.6435015797615051,
+              "validation_pairwise_logistic_loss": 0.6740545630455017
+            },
+            {
+              "epoch": 60,
+              "train_pairwise_logistic_loss": 0.6409389972686768,
+              "validation_pairwise_logistic_loss": 0.6743633151054382
+            },
+            {
+              "epoch": 80,
+              "train_pairwise_logistic_loss": 0.6385939717292786,
+              "validation_pairwise_logistic_loss": 0.676108181476593
+            },
+            {
+              "epoch": 100,
+              "train_pairwise_logistic_loss": 0.6374049782752991,
+              "validation_pairwise_logistic_loss": 0.6803808808326721
+            },
+            {
+              "epoch": 120,
+              "train_pairwise_logistic_loss": 0.63725346326828,
+              "validation_pairwise_logistic_loss": 0.6797282099723816
+            },
+            {
+              "epoch": 140,
+              "train_pairwise_logistic_loss": 0.6372564435005188,
+              "validation_pairwise_logistic_loss": 0.6794992685317993
+            },
+            {
+              "epoch": 160,
+              "train_pairwise_logistic_loss": 0.6372532248497009,
+              "validation_pairwise_logistic_loss": 0.6796095371246338
+            },
+            {
+              "epoch": 180,
+              "train_pairwise_logistic_loss": 0.6372531652450562,
+              "validation_pairwise_logistic_loss": 0.6796520948410034
+            },
+            {
+              "epoch": 200,
+              "train_pairwise_logistic_loss": 0.6372532248497009,
+              "validation_pairwise_logistic_loss": 0.679649829864502
+            }
+          ],
+          "splits": {
+            "train": {
+              "overall": {
+                "n": 4078,
+                "accuracy": 0.5407062285434037,
+                "accuracy_ties_half": 0.5434036292300147,
+                "ties": 3716,
+                "roc_auc": 0.5829760498169965,
+                "positive_labels": 2024
+              },
+              "high_similarity": {
+                "n": 774,
+                "accuracy": 0.7157622739018088,
+                "accuracy_ties_half": 0.7286821705426356,
+                "ties": 412,
+                "roc_auc": 0.8513735767819058,
+                "positive_labels": 373
+              },
+              "route_cliff": {
+                "n": 431,
+                "accuracy": 0.7494199535962877,
+                "accuracy_ties_half": 0.771461716937355,
+                "ties": 197,
+                "roc_auc": 0.8963866850638151,
+                "positive_labels": 208
+              },
+              "halide_alternative": {
+                "n": 362,
+                "accuracy": 0.988950276243094,
+                "accuracy_ties_half": 0.988950276243094,
+                "ties": 0,
+                "roc_auc": 0.992716445258818,
+                "positive_labels": 177
+              },
+              "condition_only": {
+                "n": 3716,
+                "accuracy": 0.4970398277717976,
+                "accuracy_ties_half": 0.5,
+                "ties": 3716,
+                "roc_auc": 0.5,
+                "positive_labels": 1847
+              },
+              "multi_candidate": {
+                "valid_groups": 20,
+                "ndcg_at_3": 0.9975117208394918,
+                "mrr": 1.0,
+                "relevance": "ordinal pairwise wins, not numerical yield",
+                "tie_rule": "average all equally scored permutations"
+              }
+            },
+            "validation": {
+              "overall": {
+                "n": 4345,
+                "accuracy": 0.511162255466053,
+                "accuracy_ties_half": 0.5142692750287687,
+                "ties": 4219,
+                "roc_auc": 0.5281194935717548,
+                "positive_labels": 2156
+              },
+              "high_similarity": {
+                "n": 644,
+                "accuracy": 0.6024844720496895,
+                "accuracy_ties_half": 0.5962732919254659,
+                "ties": 518,
+                "roc_auc": 0.6740738597455705,
+                "positive_labels": 323
+              },
+              "route_cliff": {
+                "n": 255,
+                "accuracy": 0.5764705882352941,
+                "accuracy_ties_half": 0.5411764705882353,
+                "ties": 234,
+                "roc_auc": 0.58,
+                "positive_labels": 135
+              },
+              "halide_alternative": {
+                "n": 126,
+                "accuracy": 0.9920634920634921,
+                "accuracy_ties_half": 0.9920634920634921,
+                "ties": 0,
+                "roc_auc": 0.998611111111111,
+                "positive_labels": 60
+              },
+              "condition_only": {
+                "n": 4219,
+                "accuracy": 0.496800189618393,
+                "accuracy_ties_half": 0.5,
+                "ties": 4219,
+                "roc_auc": 0.5,
+                "positive_labels": 2096
+              },
+              "multi_candidate": {
+                "valid_groups": 4,
+                "ndcg_at_3": 1.0,
+                "mrr": 1.0,
+                "relevance": "ordinal pairwise wins, not numerical yield",
+                "tie_rule": "average all equally scored permutations"
+              }
+            },
+            "test": {
+              "overall": {
+                "n": 7907,
+                "accuracy": 0.56152776021247,
+                "accuracy_ties_half": 0.56525863159226,
+                "ties": 6875,
+                "roc_auc": 0.621997245871783,
+                "positive_labels": 3918
+              },
+              "high_similarity": {
+                "n": 1779,
+                "accuracy": 0.7959527824620574,
+                "accuracy_ties_half": 0.7900505902192243,
+                "ties": 747,
+                "roc_auc": 0.9119099078603117,
+                "positive_labels": 894
+              },
+              "route_cliff": {
+                "n": 755,
+                "accuracy": 0.8463576158940397,
+                "accuracy_ties_half": 0.8364238410596027,
+                "ties": 247,
+                "roc_auc": 0.9466807017543859,
+                "positive_labels": 375
+              },
+              "halide_alternative": {
+                "n": 1032,
+                "accuracy": 1.0,
+                "accuracy_ties_half": 1.0,
+                "ties": 0,
+                "roc_auc": 0.9999999999999999,
+                "positive_labels": 510
+              },
+              "condition_only": {
+                "n": 6875,
+                "accuracy": 0.49570909090909093,
+                "accuracy_ties_half": 0.5,
+                "ties": 6875,
+                "roc_auc": 0.5,
+                "positive_labels": 3408
+              },
+              "multi_candidate": {
+                "valid_groups": 47,
+                "ndcg_at_3": 1.0,
+                "mrr": 1.0,
+                "relevance": "ordinal pairwise wins, not numerical yield",
+                "tie_rule": "average all equally scored permutations"
+              }
+            }
+          },
+          "fold": 1,
+          "target_split": {
+            "CCc1ccc(Nc2ccc(C)cc2)cc1": "test",
+            "COc1ccc(Nc2ccc(C)cc2)cc1": "test",
+            "Cc1ccc(Nc2ccc(C(F)(F)F)cc2)cc1": "test",
+            "Cc1ccc(Nc2ccccn2)cc1": "validation",
+            "Cc1ccc(Nc2cccnc2)cc1": "train"
+          }
+        },
+        {
+          "best_epoch": 49,
+          "validation_logistic_loss": 0.6046000123023987,
+          "epochs": 200,
+          "learning_rate": 0.01,
+          "weight_decay": 0.001,
+          "seed": 0,
+          "history": [
+            {
+              "epoch": 1,
+              "train_pairwise_logistic_loss": 0.6931471824645996,
+              "validation_pairwise_logistic_loss": 0.6437507271766663
+            },
+            {
+              "epoch": 20,
+              "train_pairwise_logistic_loss": 0.6740065813064575,
+              "validation_pairwise_logistic_loss": 0.6048938035964966
+            },
+            {
+              "epoch": 40,
+              "train_pairwise_logistic_loss": 0.6739871501922607,
+              "validation_pairwise_logistic_loss": 0.6046596765518188
+            },
+            {
+              "epoch": 60,
+              "train_pairwise_logistic_loss": 0.6739835739135742,
+              "validation_pairwise_logistic_loss": 0.6046035289764404
+            },
+            {
+              "epoch": 80,
+              "train_pairwise_logistic_loss": 0.6739832162857056,
+              "validation_pairwise_logistic_loss": 0.6046155691146851
+            },
+            {
+              "epoch": 100,
+              "train_pairwise_logistic_loss": 0.6739830374717712,
+              "validation_pairwise_logistic_loss": 0.6046151518821716
+            },
+            {
+              "epoch": 120,
+              "train_pairwise_logistic_loss": 0.6739829778671265,
+              "validation_pairwise_logistic_loss": 0.6046144366264343
+            },
+            {
+              "epoch": 140,
+              "train_pairwise_logistic_loss": 0.6739829778671265,
+              "validation_pairwise_logistic_loss": 0.6046144366264343
+            },
+            {
+              "epoch": 160,
+              "train_pairwise_logistic_loss": 0.6739829182624817,
+              "validation_pairwise_logistic_loss": 0.6046149730682373
+            },
+            {
+              "epoch": 180,
+              "train_pairwise_logistic_loss": 0.6739829182624817,
+              "validation_pairwise_logistic_loss": 0.6046157479286194
+            },
+            {
+              "epoch": 200,
+              "train_pairwise_logistic_loss": 0.6739829778671265,
+              "validation_pairwise_logistic_loss": 0.6046164631843567
+            }
+          ],
+          "splits": {
+            "train": {
+              "overall": {
+                "n": 4345,
+                "accuracy": 0.511162255466053,
+                "accuracy_ties_half": 0.5142692750287687,
+                "ties": 4219,
+                "roc_auc": 0.5281194935717548,
+                "positive_labels": 2156
+              },
+              "high_similarity": {
+                "n": 644,
+                "accuracy": 0.6024844720496895,
+                "accuracy_ties_half": 0.5962732919254659,
+                "ties": 518,
+                "roc_auc": 0.6740738597455705,
+                "positive_labels": 323
+              },
+              "route_cliff": {
+                "n": 255,
+                "accuracy": 0.5764705882352941,
+                "accuracy_ties_half": 0.5411764705882353,
+                "ties": 234,
+                "roc_auc": 0.58,
+                "positive_labels": 135
+              },
+              "halide_alternative": {
+                "n": 126,
+                "accuracy": 0.9920634920634921,
+                "accuracy_ties_half": 0.9920634920634921,
+                "ties": 0,
+                "roc_auc": 0.998611111111111,
+                "positive_labels": 60
+              },
+              "condition_only": {
+                "n": 4219,
+                "accuracy": 0.496800189618393,
+                "accuracy_ties_half": 0.5,
+                "ties": 4219,
+                "roc_auc": 0.5,
+                "positive_labels": 2096
+              },
+              "multi_candidate": {
+                "valid_groups": 4,
+                "ndcg_at_3": 1.0,
+                "mrr": 1.0,
+                "relevance": "ordinal pairwise wins, not numerical yield",
+                "tie_rule": "average all equally scored permutations"
+              }
+            },
+            "validation": {
+              "overall": {
+                "n": 7907,
+                "accuracy": 0.56152776021247,
+                "accuracy_ties_half": 0.56525863159226,
+                "ties": 6875,
+                "roc_auc": 0.621997245871783,
+                "positive_labels": 3918
+              },
+              "high_similarity": {
+                "n": 1779,
+                "accuracy": 0.7959527824620574,
+                "accuracy_ties_half": 0.7900505902192243,
+                "ties": 747,
+                "roc_auc": 0.9119099078603117,
+                "positive_labels": 894
+              },
+              "route_cliff": {
+                "n": 755,
+                "accuracy": 0.8463576158940397,
+                "accuracy_ties_half": 0.8364238410596027,
+                "ties": 247,
+                "roc_auc": 0.9466807017543859,
+                "positive_labels": 375
+              },
+              "halide_alternative": {
+                "n": 1032,
+                "accuracy": 1.0,
+                "accuracy_ties_half": 1.0,
+                "ties": 0,
+                "roc_auc": 0.9999999999999999,
+                "positive_labels": 510
+              },
+              "condition_only": {
+                "n": 6875,
+                "accuracy": 0.49570909090909093,
+                "accuracy_ties_half": 0.5,
+                "ties": 6875,
+                "roc_auc": 0.5,
+                "positive_labels": 3408
+              },
+              "multi_candidate": {
+                "valid_groups": 47,
+                "ndcg_at_3": 1.0,
+                "mrr": 1.0,
+                "relevance": "ordinal pairwise wins, not numerical yield",
+                "tie_rule": "average all equally scored permutations"
+              }
+            },
+            "test": {
+              "overall": {
+                "n": 4078,
+                "accuracy": 0.5407062285434037,
+                "accuracy_ties_half": 0.5434036292300147,
+                "ties": 3716,
+                "roc_auc": 0.5829635416867117,
+                "positive_labels": 2024
+              },
+              "high_similarity": {
+                "n": 774,
+                "accuracy": 0.7157622739018088,
+                "accuracy_ties_half": 0.7286821705426356,
+                "ties": 412,
+                "roc_auc": 0.8510259204535578,
+                "positive_labels": 373
+              },
+              "route_cliff": {
+                "n": 431,
+                "accuracy": 0.7494199535962877,
+                "accuracy_ties_half": 0.771461716937355,
+                "ties": 197,
+                "roc_auc": 0.8963866850638151,
+                "positive_labels": 208
+              },
+              "halide_alternative": {
+                "n": 362,
+                "accuracy": 0.988950276243094,
+                "accuracy_ties_half": 0.988950276243094,
+                "ties": 0,
+                "roc_auc": 0.9911284165521452,
+                "positive_labels": 177
+              },
+              "condition_only": {
+                "n": 3716,
+                "accuracy": 0.4970398277717976,
+                "accuracy_ties_half": 0.5,
+                "ties": 3716,
+                "roc_auc": 0.5,
+                "positive_labels": 1847
+              },
+              "multi_candidate": {
+                "valid_groups": 20,
+                "ndcg_at_3": 0.9975117208394918,
+                "mrr": 1.0,
+                "relevance": "ordinal pairwise wins, not numerical yield",
+                "tie_rule": "average all equally scored permutations"
+              }
+            }
+          },
+          "fold": 2,
+          "target_split": {
+            "CCc1ccc(Nc2ccc(C)cc2)cc1": "validation",
+            "COc1ccc(Nc2ccc(C)cc2)cc1": "validation",
+            "Cc1ccc(Nc2ccc(C(F)(F)F)cc2)cc1": "validation",
+            "Cc1ccc(Nc2ccccn2)cc1": "train",
+            "Cc1ccc(Nc2cccnc2)cc1": "test"
+          }
+        }
+      ],
+      "mean_test_accuracy": 0.5377987480739755,
+      "mean_test_halide_accuracy": 0.9936712561021954,
+      "macro_scaffold_test": {
+        "overall": {
+          "accuracy": 0.5377987480739755,
+          "accuracy_ties_half": 0.5409771786170144,
+          "roc_auc": 0.5776934270434165
+        },
+        "high_similarity": {
+          "accuracy": 0.7047331761378519,
+          "accuracy_ties_half": 0.705002017562442,
+          "roc_auc": 0.8123365626864799
+        },
+        "route_cliff": {
+          "accuracy": 0.7240827192418738,
+          "accuracy_ties_half": 0.7163540095283976,
+          "roc_auc": 0.8076891289394004
+        },
+        "halide_alternative": {
+          "accuracy": 0.9936712561021954,
+          "accuracy_ties_half": 0.9936712561021954,
+          "roc_auc": 0.9965798425544188
+        },
+        "condition_only": {
+          "accuracy": 0.49651636943309385,
+          "accuracy_ties_half": 0.5,
+          "roc_auc": 0.5
+        }
+      }
+    },
+    "morgan_native_tree": {
+      "primary_split": {
+        "best_epoch": 200,
+        "validation_logistic_loss": 0.6381120681762695,
+        "epochs": 200,
+        "learning_rate": 0.01,
+        "weight_decay": 0.001,
+        "seed": 0,
+        "history": [
+          {
+            "epoch": 1,
+            "train_pairwise_logistic_loss": 0.6931473612785339,
+            "validation_pairwise_logistic_loss": 0.6882558465003967
+          },
+          {
+            "epoch": 20,
+            "train_pairwise_logistic_loss": 0.6133993268013,
+            "validation_pairwise_logistic_loss": 0.6484731435775757
+          },
+          {
+            "epoch": 40,
+            "train_pairwise_logistic_loss": 0.6069321632385254,
+            "validation_pairwise_logistic_loss": 0.6427302360534668
+          },
+          {
+            "epoch": 60,
+            "train_pairwise_logistic_loss": 0.6054573655128479,
+            "validation_pairwise_logistic_loss": 0.6411072611808777
+          },
+          {
+            "epoch": 80,
+            "train_pairwise_logistic_loss": 0.604795515537262,
+            "validation_pairwise_logistic_loss": 0.6401765942573547
+          },
+          {
+            "epoch": 100,
+            "train_pairwise_logistic_loss": 0.6043766736984253,
+            "validation_pairwise_logistic_loss": 0.6395463943481445
+          },
+          {
+            "epoch": 120,
+            "train_pairwise_logistic_loss": 0.6040816307067871,
+            "validation_pairwise_logistic_loss": 0.6390960812568665
+          },
+          {
+            "epoch": 140,
+            "train_pairwise_logistic_loss": 0.6038622856140137,
+            "validation_pairwise_logistic_loss": 0.638756513595581
+          },
+          {
+            "epoch": 160,
+            "train_pairwise_logistic_loss": 0.6036940813064575,
+            "validation_pairwise_logistic_loss": 0.6384918093681335
+          },
+          {
+            "epoch": 180,
+            "train_pairwise_logistic_loss": 0.603561520576477,
+            "validation_pairwise_logistic_loss": 0.6382814049720764
+          },
+          {
+            "epoch": 200,
+            "train_pairwise_logistic_loss": 0.603455126285553,
+            "validation_pairwise_logistic_loss": 0.6381120681762695
+          }
+        ],
+        "splits": {
+          "train": {
+            "overall": {
+              "n": 7907,
+              "accuracy": 0.56152776021247,
+              "accuracy_ties_half": 0.56525863159226,
+              "ties": 6875,
+              "roc_auc": 0.621997245871783,
+              "positive_labels": 3918
+            },
+            "high_similarity": {
+              "n": 1779,
+              "accuracy": 0.7959527824620574,
+              "accuracy_ties_half": 0.7900505902192243,
+              "ties": 747,
+              "roc_auc": 0.9119099078603117,
+              "positive_labels": 894
+            },
+            "route_cliff": {
+              "n": 755,
+              "accuracy": 0.8463576158940397,
+              "accuracy_ties_half": 0.8364238410596027,
+              "ties": 247,
+              "roc_auc": 0.9466807017543859,
+              "positive_labels": 375
+            },
+            "halide_alternative": {
+              "n": 1032,
+              "accuracy": 1.0,
+              "accuracy_ties_half": 1.0,
+              "ties": 0,
+              "roc_auc": 1.0,
+              "positive_labels": 510
+            },
+            "condition_only": {
+              "n": 6875,
+              "accuracy": 0.49570909090909093,
+              "accuracy_ties_half": 0.5,
+              "ties": 6875,
+              "roc_auc": 0.5,
+              "positive_labels": 3408
+            },
+            "multi_candidate": {
+              "valid_groups": 47,
+              "ndcg_at_3": 1.0,
+              "mrr": 1.0,
+              "relevance": "ordinal pairwise wins, not numerical yield",
+              "tie_rule": "average all equally scored permutations"
+            }
+          },
+          "validation": {
+            "overall": {
+              "n": 4078,
+              "accuracy": 0.5407062285434037,
+              "accuracy_ties_half": 0.5434036292300147,
+              "ties": 3716,
+              "roc_auc": 0.5829635416867117,
+              "positive_labels": 2024
+            },
+            "high_similarity": {
+              "n": 774,
+              "accuracy": 0.7157622739018088,
+              "accuracy_ties_half": 0.7286821705426356,
+              "ties": 412,
+              "roc_auc": 0.8510259204535578,
+              "positive_labels": 373
+            },
+            "route_cliff": {
+              "n": 431,
+              "accuracy": 0.7494199535962877,
+              "accuracy_ties_half": 0.771461716937355,
+              "ties": 197,
+              "roc_auc": 0.8963866850638151,
+              "positive_labels": 208
+            },
+            "halide_alternative": {
+              "n": 362,
+              "accuracy": 0.988950276243094,
+              "accuracy_ties_half": 0.988950276243094,
+              "ties": 0,
+              "roc_auc": 0.9911284165521452,
+              "positive_labels": 177
+            },
+            "condition_only": {
+              "n": 3716,
+              "accuracy": 0.4970398277717976,
+              "accuracy_ties_half": 0.5,
+              "ties": 3716,
+              "roc_auc": 0.5,
+              "positive_labels": 1847
+            },
+            "multi_candidate": {
+              "valid_groups": 20,
+              "ndcg_at_3": 0.9975117208394918,
+              "mrr": 1.0,
+              "relevance": "ordinal pairwise wins, not numerical yield",
+              "tie_rule": "average all equally scored permutations"
+            }
+          },
+          "test": {
+            "overall": {
+              "n": 4345,
+              "accuracy": 0.511162255466053,
+              "accuracy_ties_half": 0.5142692750287687,
+              "ties": 4219,
+              "roc_auc": 0.5281194935717548,
+              "positive_labels": 2156
+            },
+            "high_similarity": {
+              "n": 644,
+              "accuracy": 0.6024844720496895,
+              "accuracy_ties_half": 0.5962732919254659,
+              "ties": 518,
+              "roc_auc": 0.6740738597455705,
+              "positive_labels": 323
+            },
+            "route_cliff": {
+              "n": 255,
+              "accuracy": 0.5764705882352941,
+              "accuracy_ties_half": 0.5411764705882353,
+              "ties": 234,
+              "roc_auc": 0.58,
+              "positive_labels": 135
+            },
+            "halide_alternative": {
+              "n": 126,
+              "accuracy": 0.9920634920634921,
+              "accuracy_ties_half": 0.9920634920634921,
+              "ties": 0,
+              "roc_auc": 0.998611111111111,
+              "positive_labels": 60
+            },
+            "condition_only": {
+              "n": 4219,
+              "accuracy": 0.496800189618393,
+              "accuracy_ties_half": 0.5,
+              "ties": 4219,
+              "roc_auc": 0.5,
+              "positive_labels": 2096
+            },
+            "multi_candidate": {
+              "valid_groups": 4,
+              "ndcg_at_3": 1.0,
+              "mrr": 1.0,
+              "relevance": "ordinal pairwise wins, not numerical yield",
+              "tie_rule": "average all equally scored permutations"
+            }
+          }
+        },
+        "fold": 0,
+        "target_split": {
+          "CCc1ccc(Nc2ccc(C)cc2)cc1": "train",
+          "COc1ccc(Nc2ccc(C)cc2)cc1": "train",
+          "Cc1ccc(Nc2ccc(C(F)(F)F)cc2)cc1": "train",
+          "Cc1ccc(Nc2ccccn2)cc1": "test",
+          "Cc1ccc(Nc2cccnc2)cc1": "validation"
+        }
+      },
+      "leave_one_scaffold_out": [
+        {
+          "best_epoch": 200,
+          "validation_logistic_loss": 0.6381120681762695,
+          "epochs": 200,
+          "learning_rate": 0.01,
+          "weight_decay": 0.001,
+          "seed": 0,
+          "history": [
+            {
+              "epoch": 1,
+              "train_pairwise_logistic_loss": 0.6931473612785339,
+              "validation_pairwise_logistic_loss": 0.6882558465003967
+            },
+            {
+              "epoch": 20,
+              "train_pairwise_logistic_loss": 0.6133993268013,
+              "validation_pairwise_logistic_loss": 0.6484731435775757
+            },
+            {
+              "epoch": 40,
+              "train_pairwise_logistic_loss": 0.6069321632385254,
+              "validation_pairwise_logistic_loss": 0.6427302360534668
+            },
+            {
+              "epoch": 60,
+              "train_pairwise_logistic_loss": 0.6054573655128479,
+              "validation_pairwise_logistic_loss": 0.6411072611808777
+            },
+            {
+              "epoch": 80,
+              "train_pairwise_logistic_loss": 0.604795515537262,
+              "validation_pairwise_logistic_loss": 0.6401765942573547
+            },
+            {
+              "epoch": 100,
+              "train_pairwise_logistic_loss": 0.6043766736984253,
+              "validation_pairwise_logistic_loss": 0.6395463943481445
+            },
+            {
+              "epoch": 120,
+              "train_pairwise_logistic_loss": 0.6040816307067871,
+              "validation_pairwise_logistic_loss": 0.6390960812568665
+            },
+            {
+              "epoch": 140,
+              "train_pairwise_logistic_loss": 0.6038622856140137,
+              "validation_pairwise_logistic_loss": 0.638756513595581
+            },
+            {
+              "epoch": 160,
+              "train_pairwise_logistic_loss": 0.6036940813064575,
+              "validation_pairwise_logistic_loss": 0.6384918093681335
+            },
+            {
+              "epoch": 180,
+              "train_pairwise_logistic_loss": 0.603561520576477,
+              "validation_pairwise_logistic_loss": 0.6382814049720764
+            },
+            {
+              "epoch": 200,
+              "train_pairwise_logistic_loss": 0.603455126285553,
+              "validation_pairwise_logistic_loss": 0.6381120681762695
+            }
+          ],
+          "splits": {
+            "train": {
+              "overall": {
+                "n": 7907,
+                "accuracy": 0.56152776021247,
+                "accuracy_ties_half": 0.56525863159226,
+                "ties": 6875,
+                "roc_auc": 0.621997245871783,
+                "positive_labels": 3918
+              },
+              "high_similarity": {
+                "n": 1779,
+                "accuracy": 0.7959527824620574,
+                "accuracy_ties_half": 0.7900505902192243,
+                "ties": 747,
+                "roc_auc": 0.9119099078603117,
+                "positive_labels": 894
+              },
+              "route_cliff": {
+                "n": 755,
+                "accuracy": 0.8463576158940397,
+                "accuracy_ties_half": 0.8364238410596027,
+                "ties": 247,
+                "roc_auc": 0.9466807017543859,
+                "positive_labels": 375
+              },
+              "halide_alternative": {
+                "n": 1032,
+                "accuracy": 1.0,
+                "accuracy_ties_half": 1.0,
+                "ties": 0,
+                "roc_auc": 1.0,
+                "positive_labels": 510
+              },
+              "condition_only": {
+                "n": 6875,
+                "accuracy": 0.49570909090909093,
+                "accuracy_ties_half": 0.5,
+                "ties": 6875,
+                "roc_auc": 0.5,
+                "positive_labels": 3408
+              },
+              "multi_candidate": {
+                "valid_groups": 47,
+                "ndcg_at_3": 1.0,
+                "mrr": 1.0,
+                "relevance": "ordinal pairwise wins, not numerical yield",
+                "tie_rule": "average all equally scored permutations"
+              }
+            },
+            "validation": {
+              "overall": {
+                "n": 4078,
+                "accuracy": 0.5407062285434037,
+                "accuracy_ties_half": 0.5434036292300147,
+                "ties": 3716,
+                "roc_auc": 0.5829635416867117,
+                "positive_labels": 2024
+              },
+              "high_similarity": {
+                "n": 774,
+                "accuracy": 0.7157622739018088,
+                "accuracy_ties_half": 0.7286821705426356,
+                "ties": 412,
+                "roc_auc": 0.8510259204535578,
+                "positive_labels": 373
+              },
+              "route_cliff": {
+                "n": 431,
+                "accuracy": 0.7494199535962877,
+                "accuracy_ties_half": 0.771461716937355,
+                "ties": 197,
+                "roc_auc": 0.8963866850638151,
+                "positive_labels": 208
+              },
+              "halide_alternative": {
+                "n": 362,
+                "accuracy": 0.988950276243094,
+                "accuracy_ties_half": 0.988950276243094,
+                "ties": 0,
+                "roc_auc": 0.9911284165521452,
+                "positive_labels": 177
+              },
+              "condition_only": {
+                "n": 3716,
+                "accuracy": 0.4970398277717976,
+                "accuracy_ties_half": 0.5,
+                "ties": 3716,
+                "roc_auc": 0.5,
+                "positive_labels": 1847
+              },
+              "multi_candidate": {
+                "valid_groups": 20,
+                "ndcg_at_3": 0.9975117208394918,
+                "mrr": 1.0,
+                "relevance": "ordinal pairwise wins, not numerical yield",
+                "tie_rule": "average all equally scored permutations"
+              }
+            },
+            "test": {
+              "overall": {
+                "n": 4345,
+                "accuracy": 0.511162255466053,
+                "accuracy_ties_half": 0.5142692750287687,
+                "ties": 4219,
+                "roc_auc": 0.5281194935717548,
+                "positive_labels": 2156
+              },
+              "high_similarity": {
+                "n": 644,
+                "accuracy": 0.6024844720496895,
+                "accuracy_ties_half": 0.5962732919254659,
+                "ties": 518,
+                "roc_auc": 0.6740738597455705,
+                "positive_labels": 323
+              },
+              "route_cliff": {
+                "n": 255,
+                "accuracy": 0.5764705882352941,
+                "accuracy_ties_half": 0.5411764705882353,
+                "ties": 234,
+                "roc_auc": 0.58,
+                "positive_labels": 135
+              },
+              "halide_alternative": {
+                "n": 126,
+                "accuracy": 0.9920634920634921,
+                "accuracy_ties_half": 0.9920634920634921,
+                "ties": 0,
+                "roc_auc": 0.998611111111111,
+                "positive_labels": 60
+              },
+              "condition_only": {
+                "n": 4219,
+                "accuracy": 0.496800189618393,
+                "accuracy_ties_half": 0.5,
+                "ties": 4219,
+                "roc_auc": 0.5,
+                "positive_labels": 2096
+              },
+              "multi_candidate": {
+                "valid_groups": 4,
+                "ndcg_at_3": 1.0,
+                "mrr": 1.0,
+                "relevance": "ordinal pairwise wins, not numerical yield",
+                "tie_rule": "average all equally scored permutations"
+              }
+            }
+          },
+          "fold": 0,
+          "target_split": {
+            "CCc1ccc(Nc2ccc(C)cc2)cc1": "train",
+            "COc1ccc(Nc2ccc(C)cc2)cc1": "train",
+            "Cc1ccc(Nc2ccc(C(F)(F)F)cc2)cc1": "train",
+            "Cc1ccc(Nc2ccccn2)cc1": "test",
+            "Cc1ccc(Nc2cccnc2)cc1": "validation"
+          }
+        },
+        {
+          "best_epoch": 200,
+          "validation_logistic_loss": 0.6781388521194458,
+          "epochs": 200,
+          "learning_rate": 0.01,
+          "weight_decay": 0.001,
+          "seed": 0,
+          "history": [
+            {
+              "epoch": 1,
+              "train_pairwise_logistic_loss": 0.6931473016738892,
+              "validation_pairwise_logistic_loss": 0.6921532154083252
+            },
+            {
+              "epoch": 20,
+              "train_pairwise_logistic_loss": 0.6405115723609924,
+              "validation_pairwise_logistic_loss": 0.6821372509002686
+            },
+            {
+              "epoch": 40,
+              "train_pairwise_logistic_loss": 0.6377874612808228,
+              "validation_pairwise_logistic_loss": 0.6798352003097534
+            },
+            {
+              "epoch": 60,
+              "train_pairwise_logistic_loss": 0.6374624371528625,
+              "validation_pairwise_logistic_loss": 0.6791826486587524
+            },
+            {
+              "epoch": 80,
+              "train_pairwise_logistic_loss": 0.6373608708381653,
+              "validation_pairwise_logistic_loss": 0.678839921951294
+            },
+            {
+              "epoch": 100,
+              "train_pairwise_logistic_loss": 0.6373149156570435,
+              "validation_pairwise_logistic_loss": 0.6786237359046936
+            },
+            {
+              "epoch": 120,
+              "train_pairwise_logistic_loss": 0.6372890472412109,
+              "validation_pairwise_logistic_loss": 0.678471565246582
+            },
+            {
+              "epoch": 140,
+              "train_pairwise_logistic_loss": 0.6372740268707275,
+              "validation_pairwise_logistic_loss": 0.6783537268638611
+            },
+            {
+              "epoch": 160,
+              "train_pairwise_logistic_loss": 0.6372652649879456,
+              "validation_pairwise_logistic_loss": 0.6782622933387756
+            },
+            {
+              "epoch": 180,
+              "train_pairwise_logistic_loss": 0.6372600793838501,
+              "validation_pairwise_logistic_loss": 0.6781924366950989
+            },
+            {
+              "epoch": 200,
+              "train_pairwise_logistic_loss": 0.6372571587562561,
+              "validation_pairwise_logistic_loss": 0.6781388521194458
+            }
+          ],
+          "splits": {
+            "train": {
+              "overall": {
+                "n": 4078,
+                "accuracy": 0.5407062285434037,
+                "accuracy_ties_half": 0.5434036292300147,
+                "ties": 3716,
+                "roc_auc": 0.5829635416867117,
+                "positive_labels": 2024
+              },
+              "high_similarity": {
+                "n": 774,
+                "accuracy": 0.7157622739018088,
+                "accuracy_ties_half": 0.7286821705426356,
+                "ties": 412,
+                "roc_auc": 0.8510259204535578,
+                "positive_labels": 373
+              },
+              "route_cliff": {
+                "n": 431,
+                "accuracy": 0.7494199535962877,
+                "accuracy_ties_half": 0.771461716937355,
+                "ties": 197,
+                "roc_auc": 0.8963866850638151,
+                "positive_labels": 208
+              },
+              "halide_alternative": {
+                "n": 362,
+                "accuracy": 0.988950276243094,
+                "accuracy_ties_half": 0.988950276243094,
+                "ties": 0,
+                "roc_auc": 0.9911284165521452,
+                "positive_labels": 177
+              },
+              "condition_only": {
+                "n": 3716,
+                "accuracy": 0.4970398277717976,
+                "accuracy_ties_half": 0.5,
+                "ties": 3716,
+                "roc_auc": 0.5,
+                "positive_labels": 1847
+              },
+              "multi_candidate": {
+                "valid_groups": 20,
+                "ndcg_at_3": 0.9975117208394918,
+                "mrr": 1.0,
+                "relevance": "ordinal pairwise wins, not numerical yield",
+                "tie_rule": "average all equally scored permutations"
+              }
+            },
+            "validation": {
+              "overall": {
+                "n": 4345,
+                "accuracy": 0.511162255466053,
+                "accuracy_ties_half": 0.5142692750287687,
+                "ties": 4219,
+                "roc_auc": 0.5281194935717548,
+                "positive_labels": 2156
+              },
+              "high_similarity": {
+                "n": 644,
+                "accuracy": 0.6024844720496895,
+                "accuracy_ties_half": 0.5962732919254659,
+                "ties": 518,
+                "roc_auc": 0.6740738597455705,
+                "positive_labels": 323
+              },
+              "route_cliff": {
+                "n": 255,
+                "accuracy": 0.5764705882352941,
+                "accuracy_ties_half": 0.5411764705882353,
+                "ties": 234,
+                "roc_auc": 0.58,
+                "positive_labels": 135
+              },
+              "halide_alternative": {
+                "n": 126,
+                "accuracy": 0.9920634920634921,
+                "accuracy_ties_half": 0.9920634920634921,
+                "ties": 0,
+                "roc_auc": 0.998611111111111,
+                "positive_labels": 60
+              },
+              "condition_only": {
+                "n": 4219,
+                "accuracy": 0.496800189618393,
+                "accuracy_ties_half": 0.5,
+                "ties": 4219,
+                "roc_auc": 0.5,
+                "positive_labels": 2096
+              },
+              "multi_candidate": {
+                "valid_groups": 4,
+                "ndcg_at_3": 1.0,
+                "mrr": 1.0,
+                "relevance": "ordinal pairwise wins, not numerical yield",
+                "tie_rule": "average all equally scored permutations"
+              }
+            },
+            "test": {
+              "overall": {
+                "n": 7907,
+                "accuracy": 0.56152776021247,
+                "accuracy_ties_half": 0.56525863159226,
+                "ties": 6875,
+                "roc_auc": 0.621997245871783,
+                "positive_labels": 3918
+              },
+              "high_similarity": {
+                "n": 1779,
+                "accuracy": 0.7959527824620574,
+                "accuracy_ties_half": 0.7900505902192243,
+                "ties": 747,
+                "roc_auc": 0.9119099078603117,
+                "positive_labels": 894
+              },
+              "route_cliff": {
+                "n": 755,
+                "accuracy": 0.8463576158940397,
+                "accuracy_ties_half": 0.8364238410596027,
+                "ties": 247,
+                "roc_auc": 0.946680701754386,
+                "positive_labels": 375
+              },
+              "halide_alternative": {
+                "n": 1032,
+                "accuracy": 1.0,
+                "accuracy_ties_half": 1.0,
+                "ties": 0,
+                "roc_auc": 1.0,
+                "positive_labels": 510
+              },
+              "condition_only": {
+                "n": 6875,
+                "accuracy": 0.49570909090909093,
+                "accuracy_ties_half": 0.5,
+                "ties": 6875,
+                "roc_auc": 0.5,
+                "positive_labels": 3408
+              },
+              "multi_candidate": {
+                "valid_groups": 47,
+                "ndcg_at_3": 1.0,
+                "mrr": 1.0,
+                "relevance": "ordinal pairwise wins, not numerical yield",
+                "tie_rule": "average all equally scored permutations"
+              }
+            }
+          },
+          "fold": 1,
+          "target_split": {
+            "CCc1ccc(Nc2ccc(C)cc2)cc1": "test",
+            "COc1ccc(Nc2ccc(C)cc2)cc1": "test",
+            "Cc1ccc(Nc2ccc(C(F)(F)F)cc2)cc1": "test",
+            "Cc1ccc(Nc2ccccn2)cc1": "validation",
+            "Cc1ccc(Nc2cccnc2)cc1": "train"
+          }
+        },
+        {
+          "best_epoch": 200,
+          "validation_logistic_loss": 0.6195420026779175,
+          "epochs": 200,
+          "learning_rate": 0.01,
+          "weight_decay": 0.001,
+          "seed": 0,
+          "history": [
+            {
+              "epoch": 1,
+              "train_pairwise_logistic_loss": 0.6931471824645996,
+              "validation_pairwise_logistic_loss": 0.6881842613220215
+            },
+            {
+              "epoch": 20,
+              "train_pairwise_logistic_loss": 0.6753871440887451,
+              "validation_pairwise_logistic_loss": 0.6435905694961548
+            },
+            {
+              "epoch": 40,
+              "train_pairwise_logistic_loss": 0.6743999719619751,
+              "validation_pairwise_logistic_loss": 0.6315918564796448
+            },
+            {
+              "epoch": 60,
+              "train_pairwise_logistic_loss": 0.6742280125617981,
+              "validation_pairwise_logistic_loss": 0.6279363632202148
+            },
+            {
+              "epoch": 80,
+              "train_pairwise_logistic_loss": 0.6741583943367004,
+              "validation_pairwise_logistic_loss": 0.6257652640342712
+            },
+            {
+              "epoch": 100,
+              "train_pairwise_logistic_loss": 0.6741170883178711,
+              "validation_pairwise_logistic_loss": 0.6242063045501709
+            },
+            {
+              "epoch": 120,
+              "train_pairwise_logistic_loss": 0.6740891933441162,
+              "validation_pairwise_logistic_loss": 0.6229382157325745
+            },
+            {
+              "epoch": 140,
+              "train_pairwise_logistic_loss": 0.6740691661834717,
+              "validation_pairwise_logistic_loss": 0.6218807101249695
+            },
+            {
+              "epoch": 160,
+              "train_pairwise_logistic_loss": 0.6740543842315674,
+              "validation_pairwise_logistic_loss": 0.6209840774536133
+            },
+            {
+              "epoch": 180,
+              "train_pairwise_logistic_loss": 0.6740432381629944,
+              "validation_pairwise_logistic_loss": 0.6202126741409302
+            },
+            {
+              "epoch": 200,
+              "train_pairwise_logistic_loss": 0.6740345358848572,
+              "validation_pairwise_logistic_loss": 0.6195420026779175
+            }
+          ],
+          "splits": {
+            "train": {
+              "overall": {
+                "n": 4345,
+                "accuracy": 0.511162255466053,
+                "accuracy_ties_half": 0.5142692750287687,
+                "ties": 4219,
+                "roc_auc": 0.5281194935717548,
+                "positive_labels": 2156
+              },
+              "high_similarity": {
+                "n": 644,
+                "accuracy": 0.6024844720496895,
+                "accuracy_ties_half": 0.5962732919254659,
+                "ties": 518,
+                "roc_auc": 0.6740738597455705,
+                "positive_labels": 323
+              },
+              "route_cliff": {
+                "n": 255,
+                "accuracy": 0.5764705882352941,
+                "accuracy_ties_half": 0.5411764705882353,
+                "ties": 234,
+                "roc_auc": 0.58,
+                "positive_labels": 135
+              },
+              "halide_alternative": {
+                "n": 126,
+                "accuracy": 0.9920634920634921,
+                "accuracy_ties_half": 0.9920634920634921,
+                "ties": 0,
+                "roc_auc": 0.998611111111111,
+                "positive_labels": 60
+              },
+              "condition_only": {
+                "n": 4219,
+                "accuracy": 0.496800189618393,
+                "accuracy_ties_half": 0.5,
+                "ties": 4219,
+                "roc_auc": 0.5,
+                "positive_labels": 2096
+              },
+              "multi_candidate": {
+                "valid_groups": 4,
+                "ndcg_at_3": 1.0,
+                "mrr": 1.0,
+                "relevance": "ordinal pairwise wins, not numerical yield",
+                "tie_rule": "average all equally scored permutations"
+              }
+            },
+            "validation": {
+              "overall": {
+                "n": 7907,
+                "accuracy": 0.56152776021247,
+                "accuracy_ties_half": 0.56525863159226,
+                "ties": 6875,
+                "roc_auc": 0.621997245871783,
+                "positive_labels": 3918
+              },
+              "high_similarity": {
+                "n": 1779,
+                "accuracy": 0.7959527824620574,
+                "accuracy_ties_half": 0.7900505902192243,
+                "ties": 747,
+                "roc_auc": 0.9119099078603117,
+                "positive_labels": 894
+              },
+              "route_cliff": {
+                "n": 755,
+                "accuracy": 0.8463576158940397,
+                "accuracy_ties_half": 0.8364238410596027,
+                "ties": 247,
+                "roc_auc": 0.946680701754386,
+                "positive_labels": 375
+              },
+              "halide_alternative": {
+                "n": 1032,
+                "accuracy": 1.0,
+                "accuracy_ties_half": 1.0,
+                "ties": 0,
+                "roc_auc": 1.0,
+                "positive_labels": 510
+              },
+              "condition_only": {
+                "n": 6875,
+                "accuracy": 0.49570909090909093,
+                "accuracy_ties_half": 0.5,
+                "ties": 6875,
+                "roc_auc": 0.5,
+                "positive_labels": 3408
+              },
+              "multi_candidate": {
+                "valid_groups": 47,
+                "ndcg_at_3": 1.0,
+                "mrr": 1.0,
+                "relevance": "ordinal pairwise wins, not numerical yield",
+                "tie_rule": "average all equally scored permutations"
+              }
+            },
+            "test": {
+              "overall": {
+                "n": 4078,
+                "accuracy": 0.5407062285434037,
+                "accuracy_ties_half": 0.5434036292300147,
+                "ties": 3716,
+                "roc_auc": 0.5829635416867117,
+                "positive_labels": 2024
+              },
+              "high_similarity": {
+                "n": 774,
+                "accuracy": 0.7157622739018088,
+                "accuracy_ties_half": 0.7286821705426356,
+                "ties": 412,
+                "roc_auc": 0.8510259204535578,
+                "positive_labels": 373
+              },
+              "route_cliff": {
+                "n": 431,
+                "accuracy": 0.7494199535962877,
+                "accuracy_ties_half": 0.771461716937355,
+                "ties": 197,
+                "roc_auc": 0.8963866850638151,
+                "positive_labels": 208
+              },
+              "halide_alternative": {
+                "n": 362,
+                "accuracy": 0.988950276243094,
+                "accuracy_ties_half": 0.988950276243094,
+                "ties": 0,
+                "roc_auc": 0.9911284165521452,
+                "positive_labels": 177
+              },
+              "condition_only": {
+                "n": 3716,
+                "accuracy": 0.4970398277717976,
+                "accuracy_ties_half": 0.5,
+                "ties": 3716,
+                "roc_auc": 0.5,
+                "positive_labels": 1847
+              },
+              "multi_candidate": {
+                "valid_groups": 20,
+                "ndcg_at_3": 0.9975117208394918,
+                "mrr": 1.0,
+                "relevance": "ordinal pairwise wins, not numerical yield",
+                "tie_rule": "average all equally scored permutations"
+              }
+            }
+          },
+          "fold": 2,
+          "target_split": {
+            "CCc1ccc(Nc2ccc(C)cc2)cc1": "validation",
+            "COc1ccc(Nc2ccc(C)cc2)cc1": "validation",
+            "Cc1ccc(Nc2ccc(C(F)(F)F)cc2)cc1": "validation",
+            "Cc1ccc(Nc2ccccn2)cc1": "train",
+            "Cc1ccc(Nc2cccnc2)cc1": "test"
+          }
+        }
+      ],
+      "mean_test_accuracy": 0.5377987480739755,
+      "mean_test_halide_accuracy": 0.9936712561021954,
+      "macro_scaffold_test": {
+        "overall": {
+          "accuracy": 0.5377987480739755,
+          "accuracy_ties_half": 0.5409771786170144,
+          "roc_auc": 0.5776934270434165
+        },
+        "high_similarity": {
+          "accuracy": 0.7047331761378519,
+          "accuracy_ties_half": 0.705002017562442,
+          "roc_auc": 0.8123365626864799
+        },
+        "route_cliff": {
+          "accuracy": 0.7240827192418738,
+          "accuracy_ties_half": 0.7163540095283976,
+          "roc_auc": 0.8076891289394004
+        },
+        "halide_alternative": {
+          "accuracy": 0.9936712561021954,
+          "accuracy_ties_half": 0.9936712561021954,
+          "roc_auc": 0.9965798425544188
+        },
+        "condition_only": {
+          "accuracy": 0.49651636943309385,
+          "accuracy_ties_half": 0.5,
+          "roc_auc": 0.5
+        }
+      }
+    }
+  },
+  "ndcg_mrr": {
+    "computed": true,
+    "valid_three_candidate_groups": 71,
+    "definition": "Same target/ligand/base/additive, all three halide comparisons survive >=20pp filtering; ordinal relevance from binary preference wins"
+  },
+  "limitations": [
+    "Single-step HTE routes, not multi-step pathway comparisons",
+    "Native tree features omit ligand/base/additive; condition-only pairs have identical embeddings",
+    "Only five targets and three product scaffolds; train/validation/test use one scaffold each",
+    "Large pair counts share observations; pairs are not independent samples",
+    "No experimental uncertainties/replicates are supplied in FullCV_01",
+    "Similarity and preference thresholds are operational candidate definitions, not validated cliff labels"
+  ]
+}

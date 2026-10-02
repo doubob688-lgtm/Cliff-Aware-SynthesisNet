@@ -1,11 +1,14 @@
-# Cliff-Aware SynthesisNet Generator — Phase 0
+# Cliff-Aware SynthesisNet Generator — Project notes
 
 2026-10-03 (Asia/Shanghai). Upstream: `shiningsunnyday/SynthesisNet`,
 commit `2fefd24dd1b746165fd0b073f340f8ecbb2e15f4`.
 
-**Pretrained BB/RXN GNN forward inference works. Complete synthetic-tree
-inference is blocked; Phase 1 has not started.** All original upstream code is
-unchanged. New code is limited to `src/cliffnet/baseline.py` and its tests.
+**Pretrained BB/RXN forward inference and the frozen pathway-ranking experiment
+work. Complete synthetic-tree generation remains blocked.** The user's subsequent
+pathway-first instruction authorizes the HTE experiment independently of the
+earlier generation gate. All upstream code/checkpoint files remain unchanged;
+new model/data/ranking code lives under `src/cliffnet/`. No TDC, numerical yield
+regression, ACA loss or guided generation is implemented.
 
 ## Architecture map
 
@@ -21,6 +24,9 @@ execution → product tree`.
 | `src/synnet/utils/data_utils.py` | `SyntheticTree`, `Skeleton`, `Skeleton.get_state`, `Skeleton.reconstruct`, `SkeletonSet`, `Reaction.run_reaction` |
 | `src/synnet/utils/reconstruct_utils.py` | `set_models`, `load_data`, `predict_skeleton`, `decode`, `wrapper_decoder`, `pick_node`, `fill_in`, `reconstruct` |
 | `scripts/reconstruct-targets.py`, `scripts/mcmc.py`, `sandbox/optimize.py` | Batch reconstruction, analog search, GA/GP generation entry points |
+| `src/cliffnet/encoder.py` | `FrozenTreeEncoder.encode_tree`: final-convolution pre-hook, frozen eval, mean pooling and unchanged predictions |
+| `src/cliffnet/buchwald.py` | Pinned XLSX loader/audit, scaffold grouping, one-component preference pairs and annotated native routes |
+| `src/cliffnet/ranking.py`, `src/cliffnet/experiment.py` | Frozen linear Bradley-Terry ranker, controls, scaffold folds and pair/group evaluation |
 
 Trees contain alternating reaction/chemical nodes. Skeletons are postorder-indexed
 NetworkX graphs with a filled-node mask and ordered reactants. The released GNNs
@@ -47,9 +53,9 @@ matrix and reaction collection with available reactants. Recognizer evaluation
 also needs matching `config.json` and canonical skeleton class ordering. Program
 hash caches, 2048-bit BB embeddings and oracle/docking assets are conditional.
 
-Clean runtime: WSL Ubuntu 22.04, Python 3.9.18, torch 2.1.0+cpu, Lightning 2.1.1,
-PyG 2.4.0, RDKit 2023.9.5. A fresh isolated environment was installed from
-[requirements.lock](docs/phase0/requirements.lock).
+Runtime: WSL Ubuntu 22.04, Python 3.9.18, torch 2.1.0+cpu, Lightning 2.1.1,
+PyG 2.4.0, RDKit 2023.9.5. [Pathway requirements](docs/pathway/requirements.lock)
+extend the isolated Phase 0 lock with openpyxl/et-xmlfile. Pip check passes.
 
 ## Successful command and expected output
 
@@ -68,20 +74,56 @@ predictions per pretrained network, identical on repeated eval calls; report at
 `results/phase0/forward.json`. This does not select BBs or execute reactions.
 
 The harness uses the unchanged state builder/positional encoding and strictly
-loads every predictor weight into unchanged `GNNModel`. It bypasses the Lightning
-training wrapper's missing validation-embedding file. Four new regression tests
-and three discoverable upstream tests pass. Commands and provenance:
-[RUNBOOK.md](docs/phase0/RUNBOOK.md), [forward-summary.json](docs/phase0/forward-summary.json).
+loads predictor weights, bypassing the training wrapper's missing validation
+embedding. Phase 0 commands/provenance: [RUNBOOK.md](docs/phase0/RUNBOOK.md).
+
+## Frozen pathway-ranking experiment
+
+Exact source: `rxn4chemistry/rxn_yields` commit
+`d9e6b87ce1b881978490d68bfc00021e3b48127a`,
+`data/Buchwald-Hartwig/Dreher_and_Doyle_input_data.xlsx`, sheet `FullCV_01`.
+The original workbook is preserved in `data/raw/buchwald_hartwig/`.
+SHA-256: `d7f318abfbb42eaadca482b1e9aa54540eeed60e0089b6a0eb4e75366c31ee2e`.
+All 3,955 rows are usable; no missing cells/duplicate conditions. Counts:
+15 aryl halides, 4 ligands, 3 bases, 22 additives; five factorial combinations
+are absent. There are five target products and three product scaffolds.
+
+Same-product one-component comparisons produce 16,330 unique preference pairs
+at a 20pp gap, including 3,197 high-similarity pairs and 1,441 cliff candidates
+at a 40pp gap. Labels are binary; yields are absent from exported training data.
+Scaffold-disjoint primary split: 7,907 / 4,078 / 4,345 train/validation/test pairs.
+
+The 3-RXN encoder exposes `[N,1200]`, mean-pools to `[B,1200]`, and preserves
+`[N,347]` predictions exactly. Both released BB/RXN checkpoints pass numerical
+preservation, finite/deterministic embedding and batching checks. Fifteen native
+trees map to all HTE records; conditions remain separate annotations.
+
+Primary test accuracy: 50.66% overall, 57.14% high-similarity, 55.69% cliff;
+ROC-AUC: 0.519 / 0.615 / 0.541. Three-scaffold macro accuracy: pretrained 48.57%,
+random encoder and native Morgan controls 53.78%. No pretrained advantage is
+demonstrated. Condition-only embeddings are identical: tie-adjusted accuracy
+50%, AUC 0.5. Seventy-one complete three-halide groups support ordinal NDCG/MRR;
+primary test has four groups, NDCG@3 0.860, MRR 0.500.
+
+Replay from the repository root in WSL:
+
+```bash
+PYTHONPATH=src /home/doubo/.cache/cliffnet/phase0-clean/bin/python -m cliffnet.experiment \
+  --checkpoint /home/doubo/projects/SynthesisNet-master/ckpts/3-RXN/ckpts.epoch=27-val_accuracy_loss=0.36.ckpt
+```
+
+Exact runnable commands, 21 passing tests, full audit/rules/results and issues:
+[RUNBOOK.md](docs/pathway/RUNBOOK.md), [REPORT.md](docs/pathway/REPORT.md),
+[summary.json](docs/pathway/summary.json), [ISSUES.md](docs/pathway/ISSUES.md).
 
 ## Safest future insertion points and blockers
 
-`encode_tree()` belongs semantically immediately before the final graph
-convolution in `GNNModel.forward`: observe `[N,1200]` hidden features, then pool
-by graph into `z_tree`. Start with an adapter/hook under `src/cliffnet/`; preserve
-state-dict keys and forward outputs. BB and RXN encoders are separate.
+`encode_tree()` now observes the input to the final graph convolution with a
+temporary hook under `src/cliffnet/`, preserving original predictor state keys
+and outputs. BB and RXN encoders are separate; ranking uses the 3-RXN encoder.
 Candidate actions belong in `wrapper_decoder`/`fill_in` after feasibility/catalog
 filtering and before ranking. At most two upstream files need small future seams:
-`models/mlp.py` and `utils/reconstruct_utils.py`. Nothing is implemented yet.
+`models/mlp.py` and `utils/reconstruct_utils.py`. Decoder integration is deferred.
 
 Blockers: missing canonical chemical assets; native checkpoint loader requires
 the embedding matrix; native decoder imports missing `tdc`. PyTDC installation
@@ -90,7 +132,8 @@ distribution. Native Windows also lacks `fcntl`; inference runs in WSL.
 All observed issues and unexecuted static findings are recorded in
 [ISSUES.md](docs/phase0/ISSUES.md).
 
-Do not introduce experimental reaction data until one native fixed-skeleton
-decode verifies all filled nodes, reaction execution and a valid root product,
-followed by recognizer-to-tree inference. An upstream helper can report the best
-intermediate/BB instead of the root, so its Tanimoto score alone is insufficient.
+Before ACA: define a condition-aware representation, obtain broader route data
+and experimental uncertainty, and validate independent chemical groups. Before
+guided generation: restore canonical assets and verify fixed-skeleton decoding
+and root reaction execution, then recognizer-to-tree inference. A helper's best
+intermediate/BB Tanimoto alone does not verify the root product.
