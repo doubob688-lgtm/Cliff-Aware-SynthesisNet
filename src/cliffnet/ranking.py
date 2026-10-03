@@ -89,7 +89,8 @@ def group_metrics(groups, route_scores):
             "tie_rule": "average all equally scored permutations"}
 
 
-def fit_and_evaluate(embeddings, route_index, pairs, epochs=200, learning_rate=0.01, seed=0):
+def fit_and_evaluate(embeddings, route_index, pairs, epochs=200, learning_rate=0.01, seed=0,
+                     training_normalization=None):
     """Fit score(z) only. Outcomes/gaps are absent from the training interface."""
     torch.manual_seed(seed)
     z = torch.tensor(embeddings, dtype=torch.float32).detach()
@@ -98,8 +99,16 @@ def fit_and_evaluate(embeddings, route_index, pairs, epochs=200, learning_rate=0
         raise ValueError("All three target-grouped splits need preference pairs")
     # Estimate scaling on unique training routes only, never validation/test.
     training_routes = sorted({route_index[p[k]] for p in groups["train"] for k in ("tree_A", "tree_B")})
-    mean = z[training_routes].mean(0)
-    scale = z[training_routes].std(0, unbiased=False).clamp_min(1e-3)
+    if training_normalization is None:
+        mean = z[training_routes].mean(0)
+        scale = z[training_routes].std(0, unbiased=False).clamp_min(1e-3)
+    else:
+        mean, scale = (torch.as_tensor(v, dtype=torch.float32).detach().clone()
+                       for v in training_normalization)
+        if mean.shape != (z.shape[1],) or scale.shape != mean.shape:
+            raise ValueError("Normalization width does not match representation")
+        if not torch.isfinite(mean).all() or not torch.isfinite(scale).all() or (scale < 1e-3).any():
+            raise ValueError("Invalid training normalization")
     z = (z - mean) / scale
     ranker = PairwiseRanker(z.shape[1])
     optimizer = torch.optim.AdamW(ranker.parameters(), lr=learning_rate, weight_decay=0.001)
@@ -137,6 +146,9 @@ def fit_and_evaluate(embeddings, route_index, pairs, epochs=200, learning_rate=0
                 "route_cliff": lambda p: p["route_cliff"],
                 "halide_alternative": lambda p: p["changed_component"] == "Aryl halide",
                 "condition_only": lambda p: p["changed_component"] != "Aryl halide",
+                "ligand": lambda p: p["changed_component"] == "Ligand",
+                "base": lambda p: p["changed_component"] == "Base",
+                "additive": lambda p: p["changed_component"] == "Additive",
             }.items():
                 indices = [i for i, p in enumerate(examples) if selector(p)]
                 stratified[name] = metrics([examples[i] for i in indices], probabilities[indices])

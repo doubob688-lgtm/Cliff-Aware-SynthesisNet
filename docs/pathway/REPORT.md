@@ -183,10 +183,173 @@ with all encountered issues in [ISSUES.md](ISSUES.md).
 
 ## Before adding ACA training
 
-The immediate blocker is a defined, tested representation of experimental
-reaction conditions that preserves the upstream prediction contract. Additional
+At completion of the tree-only experiment, the immediate blocker was a defined,
+tested representation of experimental reaction conditions that preserves the
+upstream prediction contract. The next section addresses this representation
+blocker. Additional
 needs are broader independent chemical families, multi-step experimental routes
 for pathway claims, uncertainty/replicate handling and calibrated cliff criteria.
 Native complete-tree generation separately needs canonical BB/catalog/reaction
 assets and a TDC-free integration boundary. No upstream decoder change or ACA
 implementation is part of this baseline.
+
+## Condition-aware single-step ranking baseline
+
+Completed in the new `e9fc` worktree on branch `codex/condition-aware-ranking`,
+starting from completed baseline commit
+`e26a7378c0e4ab09e90dd29863158195b1f5a495`. This is a **single-step
+reaction/pathway preference benchmark**, with no multi-step optimization claim.
+Phase 0, the pretrained encoder and the original baseline artifacts were not
+rebuilt. All upstream `src/synnet` code is unchanged.
+
+### Representations and comparable training
+
+| Representation | Feature width | Input |
+| --- | ---: | --- |
+| Tree-only | 1200 | Validated frozen pretrained 3-RXN `z_tree` cache |
+| Condition-only | 32 | Categorical ligand/base/additive one-hot blocks |
+| Tree + Condition | 1232 | Concatenation of the preceding two vectors |
+
+Condition vocabularies are fitted **separately in each fold, using only unique
+training observations participating in training preference pairs**. The category
+strings are the existing canonical SMILES; each role is sorted lexicographically.
+Block order is ligand, base, additive. All folds contain the same 4/3/22 training
+categories. A final unknown-category slot in each block gives widths 5/4/23,
+offsets 0/5/9 and total width 32. Exactly one bit per role is active. There are no
+trainable condition-encoder parameters. Exact vocabulary strings, offsets and
+training observation IDs are recorded in
+[condition_aware_summary.json](condition_aware_summary.json) and saved heads.
+Held-out transforms cannot extend the vocabulary. Unknown counts are zero for
+all actual partitions; unit tests verify explicit unseen-category behavior.
+These are held-out **chemical scaffolds**, with shared experimental condition
+categories, not a benchmark of unseen ligand/base/additive categories.
+
+The bias-free scalar linear heads all optimize
+`P(A preferred to B) = sigmoid(score(A) - score(B))` with the existing 200
+full-batch epochs, seed 0, AdamW, learning rate 0.01, weight decay 0.001 and
+validation logistic-loss epoch selection. Tree-block normalization uses only
+unique training native trees, exactly reproducing the original baseline.
+Condition-block normalization uses only unique training observations. The same
+mean/population-SD (floor 1e-3) for each block is used in both its separate head
+and the joint head. Validation/test influence neither vocabularies nor these
+statistics; validation labels select the epoch as in the original protocol.
+
+The workbook remains byte-identical. All 3,955 records, 16,330 oriented unique
+pairs, the 20pp eligibility rule, binary labels, candidate/similarity flags and
+all three scaffold fold assignments match the frozen artifacts exactly.
+There is no random pair split or reverse-pair augmentation. Numerical yields
+are read only by the source/pair audit and label/eligibility construction;
+yield, yield gap and similarity flags never enter model feature matrices.
+The original tie conventions and 71 complete three-halide groups are preserved.
+NDCG@3/MRR remain **halide-group** metrics, not a new multi-candidate
+condition-ranking evaluation.
+
+### Three-scaffold held-out ablation
+
+Each scaffold receives equal weight. Accuracies are percentages; AUC is unitless.
+“Cliff Acc” refers only to the existing **route-cliff candidates**.
+
+| Representation | Overall Acc | AUC | High-Sim Acc | Cliff Acc | Halide Acc | Ligand Acc | Base Acc | Additive Acc | Condition-only Acc |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Tree-only | 48.57 | 0.4782 | 44.79 | 45.92 | 45.80 | 49.63 | 51.01 | 49.55 | 49.65 |
+| Condition-only | 86.44 | 0.9413 | 76.86 | 77.64 | 48.64 | 97.32 | 89.76 | 88.79 | 89.71 |
+| Tree + Condition | 85.92 | 0.8962 | 74.90 | 73.84 | 50.68 | 97.32 | 89.76 | 88.62 | 89.58 |
+
+Additional scaffold-macro metrics:
+
+| Representation | Overall tie-adjusted Acc (%) | NDCG@3 | MRR |
+| --- | ---: | ---: | ---: |
+| Tree-only | 48.89 | 0.8247 | 0.6288 |
+| Condition-only | 86.52 | 0.8100 | 0.6111 |
+| Tree + Condition | 85.92 | 0.8247 | 0.6288 |
+
+| Held-out scaffold (fold) | Test pairs | Tree-only Acc (%) | Condition-only Acc (%) | Tree + Condition Acc (%) |
+| --- | ---: | ---: | ---: | ---: |
+| 2-pyridyl (0, primary) | 4,345 | 50.66 | 93.16 | 94.13 |
+| Phenyl target family (1) | 7,907 | 48.93 | 84.55 | 85.84 |
+| 3-pyridyl (2) | 4,078 | 46.13 | 81.61 | 77.81 |
+
+### Primary held-out test
+
+The primary test contains 126 halide, 506 ligand, 373 base and 3,340 additive
+pairs, totaling 4,345, with 644 high-similarity pairs and 255 route-cliff
+candidates. Its 4,219 condition-only alternatives are ligand/base/additive pairs.
+
+| Representation | Overall Acc | AUC | High-Sim Acc | Cliff Acc | Halide Acc | Ligand Acc | Base Acc | Additive Acc | Condition-only Acc |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Tree-only | 50.66 | 0.5190 | 57.14 | 55.69 | 83.33 | 48.81 | 49.60 | 49.82 | 49.68 |
+| Condition-only | 93.16 | 0.9857 | 87.42 | 95.29 | 47.62 | 97.04 | 91.96 | 94.43 | 94.52 |
+| Tree + Condition | 94.13 | 0.9772 | 94.57 | 98.04 | 83.33 | 97.04 | 91.96 | 94.34 | 94.45 |
+
+| Representation | Overall tie-adjusted Acc (%) | NDCG@3 (4 groups) | MRR |
+| --- | ---: | ---: | ---: |
+| Tree-only | 50.97 | 0.8597 | 0.5000 |
+| Condition-only | 93.23 | 0.8100 | 0.6111 |
+| Tree + Condition | 94.13 | 0.8597 | 0.5000 |
+
+All train/validation/test metrics, AUC and tie-adjusted accuracy for every
+component and subset, loss histories and selected epochs are in the JSON.
+Selected epochs by folds 0/1/2 are Tree-only 1/1/1, Condition-only 77/200/200,
+Tree + Condition 43/200/98. Tree-only reproduces the previous fold metrics and
+epoch choices exactly, using the existing cache.
+
+### Collision and preservation checks
+
+Counts cover all 3,955 observations and all 16,330 pairs; they are identical
+across folds because all condition categories are present in each training fold.
+Collisions mean **exact feature-vector equality before normalization**, not score
+ties or a floating-point similarity threshold.
+
+| Representation | Unique vectors | Unordered observation collisions | Preference-pair collisions | Condition-only pair collisions |
+| --- | ---: | ---: | ---: | ---: |
+| Tree-only | 15 | 519,426 | 14,810 | 14,810 |
+| Condition-only | 264 | 27,651 | 1,520 | 0 |
+| Tree + Condition | 3,955 | 0 | 0 | 0 |
+
+Condition-only's 1,520 colliding preference pairs are all halide alternatives;
+it deliberately lacks an aryl-halide input. The 1,466 ligand, 994 base and 12,350
+additive preference pairs have zero condition-aware representation collisions.
+Thus the missing-condition representation blocker is resolved for this dataset.
+
+The reused `z_tree.npy` SHA-256 is
+`365f5e5035f4c0ed05cfdbc471d5ae9258330d5075f334da1e2e5b7772fd258f`.
+One verification pass through the released 3-RXN encoder reproduces this cache
+bitwise and preserves the original output digest
+`e42a2c4d8033a1b330cf8fc364775fb57387ac011b9e6a8ac8eb9c0c531396b1`.
+A real Bradley-Terry backward pass leaves every backbone gradient absent,
+all backbone parameters frozen and the predictor state bitwise unchanged.
+The backbone also receives zero gradients across all nine head-training runs.
+Checkpoint bytes and original baseline artifact hashes remain unchanged.
+
+All **24 tests pass**, including condition encoding, deterministic vocabulary
+serialization, unseen-category handling, dimensions, training-only normalization,
+frozen backward/forward preservation, scaffold splits, outcome-derived pair
+labels and exact collision counts. Independent replay of all nine persisted
+heads reproduces all split/stratum metrics within absolute tolerance 1e-12
+(AUC summation can differ in its last floating-point bit), with bitwise-identical
+training vocabulary and normalization statistics. No training occurs in replay.
+
+### Interpretation and remaining ACA blocker
+
+**Condition-only improves over Tree-only:** macro accuracy +37.87pp and AUC
++0.4631, with higher overall accuracy in all three held-out folds.
+**Tree + Condition improves over Tree-only:** macro accuracy +37.35pp and AUC
++0.4180, again with higher accuracy in all folds.
+**Tree + Condition does not improve over Condition-only across held-out
+scaffolds:** macro accuracy -0.51pp and AUC -0.0451. The primary accuracy gain
+of +0.97pp and fold-1 gain of +1.29pp are offset by a fold-2 loss of -3.80pp;
+joint AUC is lower in every fold. Joint macro high-similarity and route-cliff
+candidate accuracies also decrease. These results provide **no evidence that
+pretrained SynthesisNet adds transferable value beyond conditions in this probe**.
+
+A linear score on concatenation is additive: the tree term cancels in
+condition-only pairs, so this model cannot express substrate-dependent changes
+in condition preference. The simple condition representation is now validated,
+but the remaining blocker before ACA is scientifically validating transferable
+tree-condition interactions and the cliff/uncertainty definition on broader
+independent chemistry. Three scaffold families, shared observations, additive-
+dominated pairs and absent independent replicates limit interpretation; no
+pair-level significance claim is made. Route-cliff candidates remain operational
+flags, not mechanistically validated reactivity cliffs. Multi-step experimental
+routes would be needed for any multi-step pathway claim. ACA/cliff training,
+guided generation and numerical yield prediction have **not** been started.
