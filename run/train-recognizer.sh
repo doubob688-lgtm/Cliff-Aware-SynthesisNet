@@ -5,7 +5,7 @@ depth_3="0 1 2 3 5 6 8 9 10 13 14 15 16 17 18 20 23 25 28 31 36 39 57 76 84 103 
 # values=("${depth_6}" "${depth_5}" "${depth_4}" "${depth_3}")
 
 # for datasets in "${values[@]}"; do 
-#     python scripts/predict-skeleton.py \
+#     python script/predict-skeleton.py \
 #         --skeleton-file results/viz/skeletons-train.pkl \
 #         --datasets ${datasets} \
 #         --num_per_class 0 \
@@ -15,7 +15,7 @@ depth_3="0 1 2 3 5 6 8 9 10 13 14 15 16 17 18 20 23 25 28 31 36 39 57 76 84 103 
 # done;
 
 for k in {3,4,5,6,7,8,9,10}; do
-    python scripts/predict-skeleton.py \
+    python script/predict-skeleton.py \
         --skeleton-file results/viz/skeletons-train.pkl \
         --datasets ${depth_3} \
         --num_per_class 0 \
@@ -27,7 +27,7 @@ for k in {3,4,5,6,7,8,9,10}; do
         --top_k ${k}
 done;
     
-# # python scripts/predict-skeleton.py \
+# # python script/predict-skeleton.py \
 # #     --skeleton-file results/viz/skeletons-train.pkl \
 # #     --datasets 0 1 2 3 5 6 8 9 10 13 14 15 16 17 18 20 23 25 28 31 36 39 57 76 84 103 118 119 155 217 \
 # #     --num_per_class 1 \
@@ -39,7 +39,7 @@ done;
 # #     --work-dir SynthesisNet/results/logs/recognizer/1714500818.0444856 \
 # #     --ckpt SynthesisNet/results/logs/recognizer/1714500818.0444856/ckpts.epoch=1-val_loss=0.14.ckpt
 
-python scripts/predict-skeleton.py \
+python script/predict-skeleton.py \
     --skeleton-file results/viz/skeletons-train.pkl \
     --datasets ${depth_3} \
     --num_per_class 0 \

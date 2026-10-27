@@ -10,7 +10,7 @@ ROOT_DIR=${HOME}/SynthesisNet/
 # MODEL_DIR=${HOME}/SynthesisNet/surrogate/
 MODEL_DIR=/ssd/msun415/surrogate
 
-# python scripts/reconstruct-targets.py \
+# python script/reconstruct-targets.py \
 #     --skeleton-set-file results/viz/top_1000/skeletons-top-1000-valid.pkl \
 #     --ckpt-rxn /ssd/msun415/surrogate/version_38/ \
 #     --ckpt-bb /ssd/msun415/surrogate/version_37/ \
@@ -27,7 +27,7 @@ MODEL_DIR=/ssd/msun415/surrogate
 #     --sender-filename input_reconstruct.txt \
 #     --receiver-filename output_reconstruct.txt
 
-# python scripts/reconstruct-targets.py \
+# python script/reconstruct-targets.py \
 #     --skeleton-set-file results/viz/skeletons-valid.pkl \
 #     --ckpt-rxn /ssd/msun415/surrogate/version_42/ \
 #     --ckpt-bb /ssd/msun415/surrogate/version_70/ \
@@ -40,7 +40,7 @@ MODEL_DIR=/ssd/msun415/surrogate
 #     --mermaid \
 #     --one-per-class
 
-python scripts/reconstruct-targets.py \
+python script/reconstruct-targets.py \
     --skeleton-set-file results/viz/skeletons-train.pkl \
     --ckpt-rxn ${MODEL_DIR}/${MAX_NUM_RXNS}-RXN \
     --ckpt-bb ${MODEL_DIR}/${MAX_NUM_RXNS}-NN \

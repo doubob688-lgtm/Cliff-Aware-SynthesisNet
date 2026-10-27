@@ -19,7 +19,7 @@ Let's start.
     Extract SMILES from the `.sdf` file from enamine.net.
 
     ```shell
-    python scripts/00-extract-smiles-from-sdf.py \
+    python script/00-extract-smiles-from-sdf.py \
         --input-file="data/assets/building-blocks/enamine-us.sdf" \
         --output-file="data/assets/building-blocks/enamine-us-smiles.csv.gz"
     ```
@@ -34,7 +34,7 @@ Let's start.
     and a collection of `Reaction`s with their available building blocks.
 
     ```bash
-    python scripts/01-filter-building-blocks.py \
+    python script/01-filter-building-blocks.py \
         --building-blocks-file "data/assets/building-blocks/enamine-us-smiles.csv.gz" \
         --rxn-templates-file "data/assets/reaction-templates/hb.txt" \
         --output-bblock-file "data/pre-process/building-blocks-rxns/bblocks-enamine-us.csv.gz" \
@@ -49,7 +49,7 @@ Let's start.
     Hence, we pre-compute and store the building blocks.
 
     ```bash
-    python scripts/02-compute-embeddings.py \
+    python script/02-compute-embeddings.py \
         --building-blocks-file "data/pre-process/building-blocks-rxns/bblocks-enamine-us.csv.gz" \
         --output-file "data/pre-process/embeddings/hb-enamine-embeddings.npy" \
         --featurization-fct "fp_256"
@@ -62,7 +62,7 @@ Let's start.
 
     ```bash
     # Generate synthetic trees
-    python scripts/03-generate-syntrees.py \
+    python script/03-generate-syntrees.py \
         --building-blocks-file "data/pre-process/building-blocks-rxns/bblocks-enamine-us.csv.gz" \
         --rxn-templates-file "data/assets/reaction-templates/hb.txt" \
         --output-file "data/pre-process/syntrees/synthetic-trees.json.gz" \
@@ -74,7 +74,7 @@ Let's start.
 
     ```bash
     # Filter
-    python scripts/04-filter-syntrees.py \
+    python script/04-filter-syntrees.py \
         --input-file "data/pre-process/syntrees/synthetic-trees.json.gz" \
         --output-file "data/pre-process/syntrees/synthetic-trees-filtered.json.gz" \
         --verbose
@@ -89,7 +89,7 @@ Let's start.
     The default split ratio is 6:2:2.
 
     ```bash
-    python scripts/05-split-syntrees.py \
+    python script/05-split-syntrees.py \
             --input-file "data/pre-process/syntrees/synthetic-trees-filtered.json.gz" \
             --output-dir "data/pre-process/syntrees/" --verbose
     ```
@@ -102,7 +102,7 @@ Let's start.
    We call it "super step" here, as it contains all featurized data for all networks.
 
     ```bash
-    python scripts/06-featurize-syntrees.py \
+    python script/06-featurize-syntrees.py \
         --input-dir "data/pre-process/syntrees/" \
         --output-dir "data/featurized/" --verbose
     ```
@@ -121,7 +121,7 @@ Let's start.
     This includes picking the right featurized data from the "super step" vector from the previous step.
 
     ```bash
-    python scripts/07-split-data-for-networks.py \
+    python script/07-split-data-for-networks.py \
         --input-dir "data/featurized/"
     ```
 

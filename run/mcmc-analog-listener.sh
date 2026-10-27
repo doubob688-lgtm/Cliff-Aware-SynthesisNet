@@ -11,7 +11,7 @@ export OMP_NUM_THREADS=1
 
 for ((i =1; i <= $1; i++));
 do
-    python -u scripts/mcmc_listener.py \
+    python -u script/mcmc_listener.py \
         --proc_id $i \
         --skeleton-set-file results/viz/skeletons-valid.pkl \
         --ckpt-rxn ${MODEL_DIR}/${MAX_NUM_RXNS}-RXN/ \

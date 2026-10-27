@@ -7,7 +7,7 @@ STRATEGY=topological
 use_case="mcmc_${obj}_top_k=${TOP_K}_top_k_rxn=${TOP_K_RXN}_max_rxns=${MAX_RXNS}_max_num_rxns=${MAX_NUM_RXNS}_strategy=${STRATEGY}"
 batch_size=1000
 
-python scripts/mcmc.py \
+python script/mcmc.py \
     --data data/assets/molecules/zinc.csv \
     --batch-size $batch_size \
     --skeleton-set-file results/viz/skeletons-valid.pkl \

@@ -5,9 +5,9 @@ do
         -queue x86_24h \
         -name listener.${i} \
         -mem 10g \
-        -cores ${cpus} sh ./scripts/reconstruct-listener-ccc.sh $i
+        -cores ${cpus} sh ./run/reconstruct-listener-ccc.sh $i
     # jbsub -proj synthesisnet \
     #     -name mcmc.listener.${i} \
     #     -mem 10g \
-    #     -cores ${cpus} sh ./scripts/mcmc-analog-listener-ccc.sh $i
+    #     -cores ${cpus} sh ./run/mcmc-analog-listener-ccc.sh $i
 done

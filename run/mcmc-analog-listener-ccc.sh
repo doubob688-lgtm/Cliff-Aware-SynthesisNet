@@ -7,7 +7,7 @@ STRATEGY=topological
 use_case="mcmc_${obj}_top_k=${TOP_K}_top_k_rxn=${TOP_K_RXN}_max_rxns=${MAX_RXNS}_max_num_rxns=${MAX_NUM_RXNS}_strategy=${STRATEGY}"
 MODEL_DIR=/dccstor/graph-design/surrogate
 
-python -u scripts/mcmc_listener.py \
+python -u script/mcmc_listener.py \
     --proc_id $1 \
     --skeleton-set-file results/viz/skeletons-valid.pkl \
     --ckpt-rxn ${MODEL_DIR}/${MAX_NUM_RXNS}-RXN/ \

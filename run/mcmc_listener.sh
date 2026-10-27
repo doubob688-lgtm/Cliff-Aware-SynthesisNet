@@ -8,7 +8,7 @@ STRATEGY=conf
 use_case="mcmc_${obj}_top_k=${TOP_K}_top_k_rxn=${TOP_K_RXN}_max_rxns=${MAX_RXNS}_max_num_rxns=${MAX_NUM_RXNS}_strategy=${STRATEGY}"
 for ((i =1; i <= $1; i++));
 do
-# python -u scripts/reconstruct_listener.py \
+# python -u script/reconstruct_listener.py \
 #     --proc_id $i \
 #     --filename input_${use_case}.txt \
 #     --output_filename output_${use_case}.txt \
@@ -24,7 +24,7 @@ do
 #     --filter-only rxn bb \
 #     --top-bbs-file results/viz/programs/program_cache-bb=1000-prods=2/bblocks-top-1000.txt &
 
-    # python -u scripts/reconstruct_listener.py \
+    # python -u script/reconstruct_listener.py \
     #     --proc_id $i \
     #     --filename input_${use_case}.txt \
     #     --output_filename output_${use_case}.txt \
@@ -37,7 +37,7 @@ do
     #     --test-correct-method reconstruct \
     #     --strategy topological &
 
-    python -u scripts/mcmc_listener.py \
+    python -u script/mcmc_listener.py \
         --proc_id $i \
         --skeleton-set-file results/viz/skeletons-valid.pkl \
         --ckpt-rxn /ssd/msun415/surrogate/${MAX_NUM_RXNS}-RXN/ \

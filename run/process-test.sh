@@ -1,6 +1,6 @@
 # for split in {'train','valid'}; do
 #     mkdir -p data/top_1000/gnn_featurized_bfs_${split}
-#     python scripts/process-for-gnn.py \
+#     python script/process-for-gnn.py \
 #         --determine_criteria bfs \
 #         --output-dir data/top_1000/gnn_featurized_bfs_${split} \
 #         --anchor_type target \
@@ -12,7 +12,7 @@
 
 for split in {'train','valid','test'}; do
     mkdir -p data/top_1000/gnn_featurized_bfs_split_${split}
-    python scripts/split_data.py \
+    python script/split_data.py \
         --in-dir data/top_1000/gnn_featurized_bfs_${split}/ \
         --out-dir data/top_1000/gnn_featurized_bfs_split_${split}/ \
         --partition_size 1 
@@ -21,7 +21,7 @@ done;
 
 # for split in {'valid','test'}; do
 #     mkdir -p data/top_1000/gnn_featurized_leaf_up_2_${split}
-#     python scripts/process-for-gnn.py \
+#     python script/process-for-gnn.py \
 #         --determine_criteria leaf_up_2 \
 #         --output-dir data/top_1000/gnn_featurized_leaf_up_2_${split} \
 #         --anchor_type target \
@@ -32,7 +32,7 @@ done;
 
 # for split in {'train','valid','test'}; do
 #     mkdir -p data/top_1000/gnn_featurized_leaf_up_2_split_${split}
-#     python scripts/split_data.py \
+#     python script/split_data.py \
 #         --in-dir data/top_1000/gnn_featurized_leaf_up_2_${split}/ \
 #         --out-dir data/top_1000/gnn_featurized_leaf_up_2_split_${split}/ \
 #         --partition_size 1

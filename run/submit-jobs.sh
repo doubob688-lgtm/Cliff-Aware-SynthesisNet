@@ -5,7 +5,7 @@
 #     -proj synthesisnet \
 #     -mem 20g \
 #     -cores 40 \
-#     python scripts/build-hash-table.py \
+#     python script/build-hash-table.py \
 #     --ncpu 40 \
 #     --cache-dir /dccstor/graph-design/program_cache_keep-prods=2/ \
 #     --log_file /u/msun415/SynthesisNet/results/viz/program_cache_keep-prods=2/log.txt \
@@ -25,7 +25,7 @@
 #             -proj synthesisnet \
 #             -name batch.${batch} \
 #             -mem 10g \
-#             python scripts/build-hash-table.py \
+#             python script/build-hash-table.py \
 #             --ncpu 1 \
 #             --cache-dir /dccstor/graph-design/program_cache_keep-prods=2/ \
 #             --log_file /u/msun415/SynthesisNet/results/viz/program_cache_keep-prods=2/log-init-${batch}.txt \
@@ -43,7 +43,7 @@
 # jbsub \
 #     -proj synthesisnet \
 #     -mem 20g \
-#     python scripts/build-hash-table.py \
+#     python script/build-hash-table.py \
 #     --ncpu 1 \
 #     --cache-dir /dccstor/graph-design/program_cache_keep-prods=2/ \
 #     --log_file /u/msun415/SynthesisNet/results/viz/program_cache_keep-prods=2/log.txt \
@@ -81,7 +81,7 @@ for batch in {0..88}
             #     -name batch.${batch}.hard \
             #     -mem 1000g \
             #     -cores 20 \
-            #     python scripts/build-hash-table.py \
+            #     python script/build-hash-table.py \
             #     --ncpu 20 \
             #     --cache-dir /dccstor/graph-design/program_cache_keep-prods=2/ \
             #     --log_file /u/msun415/SynthesisNet/results/viz/program_cache_keep-prods=2/log-run-${batch}.txt \
@@ -102,7 +102,7 @@ for batch in {0..88}
 #     -queue x86_24h \
 #     -name batch.-1 \
 #     -mem 50g \
-#     python scripts/build-hash-table.py \
+#     python script/build-hash-table.py \
 #     --ncpu 1 \
 #     --cache-dir /dccstor/graph-design/program_cache_keep-prods=2/ \
 #     --log_file /u/msun415/SynthesisNet/results/viz/program_cache_keep-prods=2/log.txt \
@@ -120,7 +120,7 @@ for batch in {0..88}
 #     -proj synthesisnet \
 #     -mem 100g \
 #     -cores 1 \
-#     python scripts/build-hash-table.py \
+#     python script/build-hash-table.py \
 #     --ncpu 1 \
 #     --cache-dir /dccstor/graph-design/program_cache_keep-prods=2/ \
 #     --log_file /u/msun415/SynthesisNet/results/viz/program_cache_keep-prods=2/log.txt \
@@ -142,7 +142,7 @@ for batch in {0..88}
 #         -name batch.${batch} \
 #         -mem 100g \
 #         -cores 1 \
-#         python scripts/build-hash-table.py \
+#         python script/build-hash-table.py \
 #         --ncpu 1 \
 #         --cache-dir /dccstor/graph-design/program_cache_keep-prods=2/ \
 #         --log_file /u/msun415/SynthesisNet/results/viz/program_cache_keep-prods=2/log-expand-2-${batch}.txt \

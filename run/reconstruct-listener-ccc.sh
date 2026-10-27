@@ -7,7 +7,7 @@ use_case="analog_top_k=${TOP_K}_max_num_rxns=${MAX_NUM_RXNS}_max_rxns=${MAX_RXNS
 ROOT_DIR=/u/msun415/SynthesisNet/
 MODEL_DIR=/dccstor/graph-design/surrogate
 
-python -u scripts/reconstruct_listener.py \
+python -u script/reconstruct_listener.py \
     --proc_id $1 \
     --filename input_${use_case}.txt \
     --output_filename output_${use_case}.txt \

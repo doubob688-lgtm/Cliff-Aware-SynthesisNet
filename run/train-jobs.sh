@@ -7,10 +7,10 @@ do
         -queue x86_24h \
         -name train.${i}.rxn \
         -mem 50g \
-        -cores ${cpus}+1 sh ./scripts/submit_train_job.sh $i ${cpus} 0 ${dir}
+        -cores ${cpus}+1 sh ./run/submit_train_job.sh $i ${cpus} 0 ${dir}
     jbsub -proj synthesisnet \
         -queue x86_24h \
         -name train.${i}.bb \
         -mem 50g \
-        -cores ${cpus}+1 sh ./scripts/submit_train_job.sh $i ${cpus} 1 ${dir}
+        -cores ${cpus}+1 sh ./run/submit_train_job.sh $i ${cpus} 1 ${dir}
 done

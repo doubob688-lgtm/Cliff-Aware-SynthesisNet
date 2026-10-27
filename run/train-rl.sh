@@ -3,7 +3,7 @@ export BUILDING_BLOCKS_FILE=data/assets/building-blocks/enamine_us_matched.csv ;
 export RXN_TEMPLATE_FILE=data/assets/reaction-templates/hb.txt ; 
 export RXN_COLLECTION_FILE=data/assets/reaction-templates/reactions_hb.json.gz ; 
 export EMBEDDINGS_KNN_FILE=data/assets/building-blocks/enamine_us_emb_fp_256.npy ; 
-python scripts/train-rl.py \
+python script/train-rl.py \
     --surrogate results/logs/gnn/surrogates/600000_all/ckpts.epoch=69-val_nn_accuracy_loss=0.52.ckpt \
     --hash-dir results/hash_table-bb=1000-prods=2_new/ \
     --building_blocks_file $BUILDING_BLOCKS_FILE \
@@ -17,7 +17,7 @@ python scripts/train-rl.py \
     --method forward \
     --num-simulations 1000 \
     --lr 0.01
-# python scripts/rl.py \
+# python script/rl.py \
 #     --skeleton-set-file results/viz/top_1000/skeletons-top-1000-train.pkl \
 #     --hash-dir results/hash_table-bb=1000-prods=2_new/ \
 #     --out-dir SynthesisNet/results/viz/top_1000 \

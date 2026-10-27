@@ -41,10 +41,34 @@ search space. Our framework allows users to provide these skeletons, but we can
 automatically extract them by first sampling a large number of synthetic trees, filter
 them, then extracting the skeletons present among them.
 
+### Project layout
+
+| Directory | Contents |
+| --- | --- |
+| `model/` | Model checkpoint placement and pretrained model references. |
+| `run/` | Shell launchers and Conda environment definitions. |
+| `data/` | Enamine building blocks, reaction templates, and other datasets. |
+| `script/` | Python command-line utilities and analysis notebooks. |
+
+Run commands from the repository root. The former `scripts/` directory is now
+`script/` for Python utilities and notebooks, and `run/` for shell launchers.
+Python model implementations remain in `src/synnet/models/`.
+
+Install [Git LFS](https://git-lfs.com/) before cloning or pulling data, then run:
+
+```bash
+git lfs install
+git lfs pull
+```
+
+Model/data binary formats are tracked with Git LFS according to `.gitattributes`.
+The Enamine CSV is stored in regular Git because GitHub rejects new LFS uploads
+to this public fork. See each directory's README for placement and usage details.
+
 ### Environment
 
 ```bash
-conda env create -f environment.yml
+conda env create -f run/environment.yml
 source activate synthesisnet
 pip install -e .
 ```
@@ -61,7 +85,7 @@ The reaction templates (from Hartenfeller-Button) are in data/assets/hb.txt.
 1) Extract SMILES from the .sdf file from enamine.net.
 
 ```bash
-python scripts/00-extract-smiles-from-sdf.py \
+python script/00-extract-smiles-from-sdf.py \
     --input-file="data/assets/building-blocks/enamine-us.sdf" \
     --output-file="data/assets/building-blocks/enamine-us-smiles.csv.gz"
 ``````
@@ -69,7 +93,7 @@ python scripts/00-extract-smiles-from-sdf.py \
 2) Filter building blocks.
 
 ```bash
-python scripts/01-filter-building-blocks.py \
+python script/01-filter-building-blocks.py \
     --building-blocks-file "data/assets/building-blocks/enamine-us-smiles.csv.gz" \
     --rxn-templates-file "data/assets/reaction-templates/hb.txt" \
     --output-bblock-file "data/assets/building-blocks/enamine_us_matched.csv" \
@@ -79,7 +103,7 @@ python scripts/01-filter-building-blocks.py \
 3) Embed building blocks.
 
 ```bash
-python scripts/02-compute-embeddings.py \
+python script/02-compute-embeddings.py \
     --building-blocks-file "data/assets/building-blocks/enamine_us_matched.csv" \
     --output-file "data/assets/building-blocks/enamine_us_emb_fp_256.npy" \
     --featurization-fct "fp_256"
@@ -96,27 +120,27 @@ export EMBEDDINGS_KNN_FILE=data/assets/building-blocks/enamine_us_emb_fp_256.npy
 
 Sample 600000 synthetic trees.
 ```bash
-python scripts/03-generate-syntrees.py --building-blocks-file $BUILDING_BLOCKS_FILE --rxn-templates-file $RXN_TEMPLATE_FILE --output-file "data/pre-process/syntrees/synthetic-trees.json.gz" --number-syntrees "600000"
+python script/03-generate-syntrees.py --building-blocks-file $BUILDING_BLOCKS_FILE --rxn-templates-file $RXN_TEMPLATE_FILE --output-file "data/pre-process/syntrees/synthetic-trees.json.gz" --number-syntrees "600000"
 ```
 
 Filter to only those that produce chemically valid molecules and are pass a QED
 threshold. You can customize with additional filters.
 
 ```bash
-python scripts/04-filter-syntrees.py --input-file "data/pre-process/syntrees/synthetic-trees.json.gz" --output-file "data/pre-process/syntrees/synthetic-trees-filtered.json.gz" --verbose
+python script/04-filter-syntrees.py --input-file "data/pre-process/syntrees/synthetic-trees.json.gz" --output-file "data/pre-process/syntrees/synthetic-trees-filtered.json.gz" --verbose
 ```
 
 Split into training, valid, test sets.
 
 ```bash
-python scripts/05-split-syntrees.py --input-file "data/pre-process/syntrees/synthetic-trees-filtered.json.gz" --output-dir "data/pre-process/syntrees/" --verbose
+python script/05-split-syntrees.py --input-file "data/pre-process/syntrees/synthetic-trees-filtered.json.gz" --output-dir "data/pre-process/syntrees/" --verbose
 ```
 
 Extract the skeletons and perform exploratory data analysis.
 
 ```bash
 mkdir results/viz/
-python scripts/analyze-skeletons.py \
+python script/analyze-skeletons.py \
     --skeleton-file results/viz/skeletons.pkl \
     --input-file data/pre-process/syntrees/synthetic-trees-filtered.json.gz \
     --visualize-dir results/viz/
@@ -132,7 +156,7 @@ canonical keys the same.
 
 ```bash
 for split in {'train','valid','test'}; do
-    python scripts/analyze-skeletons.py \
+    python script/analyze-skeletons.py \
         --skeleton-file results/viz/skeletons-${split}.pkl \
         --input-file data/pre-process/syntrees/synthetic-trees-filtered-${split}.json.gz \
         --visualize-dir results/viz/ \
@@ -169,7 +193,7 @@ for split in {'train','valid','test'}; do
     mkdir -p data/${dataset}_max_depth=${max_depth}_split_${split}    
 
     # Enumerate partial trees
-    python scripts/process-for-gnn.py \
+    python script/process-for-gnn.py \
         --determine_criteria ${criteria} \
         --output-dir data/${dataset}_max_depth=${max_depth}_${split} \
         --anchor_type target \
@@ -180,7 +204,7 @@ for split in {'train','valid','test'}; do
         --num-trees-per-batch 5000
 
     # Partition each batch into individual files, so data loading becomes I/O-bound
-    python scripts/split_data.py \
+    python script/split_data.py \
         --in-dir data/${dataset}_max_depth=${max_depth}_${split}/ \
         --out-dir data/${dataset}_max_depth=${max_depth}_split_${split}/ \
         --partition_size 1        
@@ -249,7 +273,7 @@ See our bash script for the hyperparameters. Remember to specify the surrogate m
 checkpoint directory correctly.
 
 ```bash
-./scripts/mcmc-analog.sh
+./run/mcmc-analog.sh
 ``````
 
 This script assumes you have listener processes in the background to parallelize across
@@ -257,7 +281,7 @@ the batch. Each listener process can be called by running. Make sure the hyperpa
 you want to try are also specified in it.
 
 ```bash
-./scripts/mcmc-analog-listener-ccc.sh ${NUM_PROCESSES}
+./run/mcmc-analog-listener-ccc.sh ${NUM_PROCESSES}
 ``````
 
 The listeners coordinate via sender-filename and receiver-filename in mcmc-analog.sh.
@@ -293,7 +317,7 @@ of oracle calls.
 
 ### Running the Genetic Algorithms
 
-The environment used for the genetic search is given in `synnet_ga.yml`. Note that for
+The environment used for the genetic search is given in `run/synnet_ga.yml`. Note that for
 the docking objectives (`7l11`, `drd3`), we
 use [`pyscreneer`](https://github.com/coleygroup/pyscreener) with vina-type software
 (installation instructions are given in the linked repository). An example command for

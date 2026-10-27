@@ -14,7 +14,7 @@ export OMP_NUM_THREADS=1
 
 for ((i =1; i <= $1; i++));
 do
-# python -u scripts/reconstruct_listener.py \
+# python -u script/reconstruct_listener.py \
 #     --proc_id $i \
 #     --filename input_${use_case}.txt \
 #     --output_filename output_${use_case}.txt \
@@ -30,7 +30,7 @@ do
 #     --filter-only rxn bb \
 #     --top-bbs-file results/viz/programs/program_cache-bb=1000-prods=2/bblocks-top-1000.txt &
 
-    # python -u scripts/reconstruct_listener.py \
+    # python -u script/reconstruct_listener.py \
     #     --proc_id $i \
     #     --filename input_${use_case}.txt \
     #     --output_filename output_${use_case}.txt \
@@ -43,7 +43,7 @@ do
     #     --test-correct-method reconstruct \
     #     --strategy topological &
 
-    python -u scripts/reconstruct_listener.py \
+    python -u script/reconstruct_listener.py \
         --proc_id $i \
         --skeleton-set-file results/viz/skeletons-train.pkl \
         --ckpt-rxn ${MODEL_DIR}/${MAX_NUM_RXNS}-RXN \

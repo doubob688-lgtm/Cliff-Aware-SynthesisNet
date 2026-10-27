@@ -1,5 +1,5 @@
 export PYTHONPATH="${HOME}/SynthesisNet/src"
-python scripts/ga-surrogate.py \
+python script/ga-surrogate.py \
     --log_file $HOME/SynthesisNet/results/viz/top_1000/log_ga.txt \
     --skeleton-set-file /ssd/msun415/skeletons-top-1000-valid.pkl \
     --ckpt-rxn /ssd/msun415/surrogate/version_38/ \
